@@ -111,7 +111,7 @@ export default function Home() {
             <div><span>01</span><h3>MJUSA Spotlight</h3><small>Official video</small></div>
           </article>
           <article className="media-card">
-            <video controls playsInline preload="metadata" poster="https://i.ytimg.com/vi/pSEQeyp-zi8/hqdefault.jpg" aria-label="Miss Juneteenth USA video feature two"><source src="/media/mjusa-june-off.m4v" type="video/mp4" /></video>
+            <iframe src="https://www.youtube.com/embed/pSEQeyp-zi8?rel=0" title="Miss Juneteenth USA video feature two" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
             <div><span>02</span><h3>MJUSA in Motion</h3><small>Official video</small></div>
           </article>
         </div>
