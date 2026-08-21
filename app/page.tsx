@@ -109,14 +109,6 @@ export default function Home() {
             <video controls playsInline preload="metadata" poster="/media/mjusa-logo-transparent.png" aria-label="Juneteenth celebration video"><source src="/media/mjusa-june-off.m4v" type="video/mp4" /></video>
             <div><span>02</span><h3>Juneteenth</h3><small>The celebration</small></div>
           </article>
-          <article className="media-card">
-            <video controls playsInline preload="metadata" poster="/media/mjusa-queens.jpg" aria-label="Miss Juneteenth USA behind the scenes video one"><source src="/media/mjusa-dji-0013.m4v" type="video/mp4" /></video>
-            <div><span>03</span><h3>Behind the Scenes</h3><small>In the moment</small></div>
-          </article>
-          <article className="media-card">
-            <video controls playsInline preload="metadata" poster="/media/mjusa-queens.jpg" aria-label="Miss Juneteenth USA behind the scenes video two"><source src="/media/mjusa-dji-0014.m4v" type="video/mp4" /></video>
-            <div><span>04</span><h3>Making Memories</h3><small>Together</small></div>
-          </article>
         </div>
       </section>
 
