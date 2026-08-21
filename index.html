@@ -18,7 +18,7 @@
     .site-header { height:86px; padding:0 4.5vw; display:flex; align-items:center; justify-content:space-between; background:#f8f3eb; position:relative; z-index:10; }
     .wordmark { display:flex; align-items:center; gap:10px; font-size:12px; letter-spacing:.12em; line-height:1.15; }
     .wordmark b { display:block; color:var(--red); letter-spacing:.33em; }
-    .brand-logo { width:66px; height:52px; object-fit:cover; object-position:center; border-radius:2px; }
+    .brand-logo { width:66px; height:52px; object-fit:contain; object-position:center; }
     .crown-mark { font-family:serif; font-size:28px; color:var(--gold); transform:rotate(180deg); display:inline-block; }
     nav { display:flex; gap:34px; font-size:12px; text-transform:uppercase; letter-spacing:.1em; }
     nav a { border-bottom:1px solid transparent; padding:8px 0; }
@@ -89,7 +89,7 @@
     .closing .eyebrow { color:var(--red); }
     .closing h2 { font-size:clamp(65px,9vw,128px); margin:35px 0 55px; }
     .primary-button.dark { background:var(--red); color:white; }
-    .closing-logo { width:230px; height:165px; object-fit:cover; margin-bottom:36px; box-shadow:0 18px 45px rgba(82,40,12,.16); }
+    .closing-logo { width:260px; height:190px; object-fit:contain; margin-bottom:36px; filter:drop-shadow(0 18px 24px rgba(82,40,12,.18)); }
     .site-footer { background:#100e0d; color:white; padding:65px 7vw 35px; display:grid; grid-template-columns:1fr 1.3fr 1fr; gap:5vw; align-items:start; }
     .footer-mark { color:white; }
     .site-footer>p { font-family:"Cormorant Garamond",serif; font-size:22px; line-height:1.3; margin:0; }
@@ -142,7 +142,7 @@
 <body>
   <main>
     <header class="site-header">
-      <a class="wordmark" href="#top" aria-label="Miss Juneteenth USA home"><img class="brand-logo" src="./public/media/mjusa-logo.png" alt="Miss Juneteenth USA logo"><span>MISS JUNETEENTH <b>USA</b></span></a>
+      <a class="wordmark" href="#top" aria-label="Miss Juneteenth USA home"><img class="brand-logo" src="./public/media/mjusa-logo-transparent.png" alt="Miss Juneteenth USA logo"><span>MISS JUNETEENTH <b>USA</b></span></a>
       <nav aria-label="Main navigation"><a href="#mission">Our mission</a><a href="#program">The program</a><a href="#story">Our story</a><a href="#gallery">Gallery</a></nav>
       <a class="header-cta" href="mailto:info@missjuneteenthusa.org?subject=Start%20my%20MJUSA%20journey">Get involved <span>↗</span></a>
     </header>
@@ -188,16 +188,16 @@
       <div class="gallery-heading"><div class="section-label light"><span>03</span> Media gallery</div><p class="kicker">Moments in motion.</p><h2>See the <em>journey</em><br>come alive.</h2><p>From the national stage to community moments, experience the energy, sisterhood, and purpose behind Miss Juneteenth USA.</p></div>
       <div class="media-gallery">
         <article class="media-card featured"><video controls playsinline preload="metadata" poster="./public/media/mjusa-queens.jpg" aria-label="National pageant highlights"><source src="./public/media/mjusa-pageant.m4v" type="video/mp4"></video><div><span>01</span><h3>National Pageant</h3><small>Highlights</small></div></article>
-        <article class="media-card"><video controls playsinline preload="metadata" poster="./public/media/mjusa-logo.png" aria-label="Juneteenth celebration video"><source src="./public/media/mjusa-june-off.m4v" type="video/mp4"></video><div><span>02</span><h3>Juneteenth</h3><small>The celebration</small></div></article>
+        <article class="media-card"><video controls playsinline preload="metadata" poster="./public/media/mjusa-logo-transparent.png" aria-label="Juneteenth celebration video"><source src="./public/media/mjusa-june-off.m4v" type="video/mp4"></video><div><span>02</span><h3>Juneteenth</h3><small>The celebration</small></div></article>
         <article class="media-card"><video controls playsinline preload="metadata" poster="./public/media/mjusa-queens.jpg" aria-label="Miss Juneteenth USA behind the scenes video one"><source src="./public/media/mjusa-dji-0013.m4v" type="video/mp4"></video><div><span>03</span><h3>Behind the Scenes</h3><small>In the moment</small></div></article>
         <article class="media-card"><video controls playsinline preload="metadata" poster="./public/media/mjusa-queens.jpg" aria-label="Miss Juneteenth USA behind the scenes video two"><source src="./public/media/mjusa-dji-0014.m4v" type="video/mp4"></video><div><span>04</span><h3>Making Memories</h3><small>Together</small></div></article>
       </div>
     </section>
 
-    <section class="closing"><img class="closing-logo" src="./public/media/mjusa-logo.png" alt="Miss Juneteenth USA official logo"><p class="eyebrow">YOUR JOURNEY STARTS HERE</p><h2>Ready to step<br>into your <em>legacy?</em></h2><a class="primary-button dark" href="mailto:info@missjuneteenthusa.org?subject=Start%20my%20MJUSA%20journey">Start your journey <span>↗</span></a></section>
+    <section class="closing"><img class="closing-logo" src="./public/media/mjusa-logo-transparent.png" alt="Miss Juneteenth USA official logo"><p class="eyebrow">YOUR JOURNEY STARTS HERE</p><h2>Ready to step<br>into your <em>legacy?</em></h2><a class="primary-button dark" href="mailto:info@missjuneteenthusa.org?subject=Start%20my%20MJUSA%20journey">Start your journey <span>↗</span></a></section>
 
     <footer class="site-footer">
-      <a class="wordmark footer-mark" href="#top"><img class="brand-logo" src="./public/media/mjusa-logo.png" alt=""><span>MISS JUNETEENTH <b>USA</b></span></a>
+      <a class="wordmark footer-mark" href="#top"><img class="brand-logo" src="./public/media/mjusa-logo-transparent.png" alt=""><span>MISS JUNETEENTH <b>USA</b></span></a>
       <p>Highlighting &amp; spotlighting African American youth across the nation.</p>
       <div><a href="mailto:info@missjuneteenthusa.org">info@missjuneteenthusa.org</a><a href="https://www.missjuneteenthusa.org">missjuneteenthusa.org</a></div>
       <small>© 2026 Miss Juneteenth USA. All rights reserved.</small>

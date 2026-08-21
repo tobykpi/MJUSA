@@ -18,7 +18,7 @@ export default function Home() {
     <main>
       <header className="site-header">
         <a className="wordmark" href="#top" aria-label="Miss Juneteenth USA home">
-          <Image className="brand-logo" src="/media/mjusa-logo.png" alt="Miss Juneteenth USA logo" width={66} height={52} priority />
+          <Image className="brand-logo" src="/media/mjusa-logo-transparent.png" alt="Miss Juneteenth USA logo" width={66} height={52} priority />
           <span>MISS JUNETEENTH <b>USA</b></span>
         </a>
         <nav aria-label="Main navigation">
@@ -106,7 +106,7 @@ export default function Home() {
             <div><span>01</span><h3>National Pageant</h3><small>Highlights</small></div>
           </article>
           <article className="media-card">
-            <video controls playsInline preload="metadata" poster="/media/mjusa-logo.png" aria-label="Juneteenth celebration video"><source src="/media/mjusa-june-off.m4v" type="video/mp4" /></video>
+            <video controls playsInline preload="metadata" poster="/media/mjusa-logo-transparent.png" aria-label="Juneteenth celebration video"><source src="/media/mjusa-june-off.m4v" type="video/mp4" /></video>
             <div><span>02</span><h3>Juneteenth</h3><small>The celebration</small></div>
           </article>
           <article className="media-card">
@@ -121,14 +121,14 @@ export default function Home() {
       </section>
 
       <section className="closing">
-        <Image className="closing-logo" src="/media/mjusa-logo.png" alt="Miss Juneteenth USA official logo" width={260} height={190} />
+        <Image className="closing-logo" src="/media/mjusa-logo-transparent.png" alt="Miss Juneteenth USA official logo" width={260} height={190} />
         <p className="eyebrow">YOUR JOURNEY STARTS HERE</p>
         <h2>Ready to step<br />into your <em>legacy?</em></h2>
         <a className="primary-button dark" href="mailto:info@missjuneteenthusa.org?subject=Start%20my%20MJUSA%20journey">Start your journey <span>↗</span></a>
       </section>
 
       <footer className="site-footer">
-        <a className="wordmark footer-mark" href="#top"><Image className="brand-logo" src="/media/mjusa-logo.png" alt="" width={66} height={52} /><span>MISS JUNETEENTH <b>USA</b></span></a>
+        <a className="wordmark footer-mark" href="#top"><Image className="brand-logo" src="/media/mjusa-logo-transparent.png" alt="" width={66} height={52} /><span>MISS JUNETEENTH <b>USA</b></span></a>
         <p>Highlighting &amp; spotlighting African American youth across the nation.</p>
         <div><a href="mailto:info@missjuneteenthusa.org">info@missjuneteenthusa.org</a><a href="https://www.missjuneteenthusa.org">missjuneteenthusa.org</a></div>
         <small>© 2026 Miss Juneteenth USA. All rights reserved.</small>
