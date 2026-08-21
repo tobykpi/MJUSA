@@ -18,13 +18,14 @@ export default function Home() {
     <main>
       <header className="site-header">
         <a className="wordmark" href="#top" aria-label="Miss Juneteenth USA home">
-          <span className="crown-mark">♛</span>
+          <Image className="brand-logo" src="/media/mjusa-logo.png" alt="Miss Juneteenth USA logo" width={66} height={52} priority />
           <span>MISS JUNETEENTH <b>USA</b></span>
         </a>
         <nav aria-label="Main navigation">
           <a href="#mission">Our mission</a>
           <a href="#program">The program</a>
           <a href="#story">Our story</a>
+          <a href="#gallery">Gallery</a>
         </nav>
         <a className="header-cta" href="mailto:info@missjuneteenthusa.org?subject=Start%20my%20MJUSA%20journey">Get involved <span>↗</span></a>
       </header>
@@ -84,12 +85,7 @@ export default function Home() {
       </section>
 
       <section className="story" id="story">
-        <div className="video-wrap">
-          <video controls playsInline preload="metadata" poster="/media/mjusa-queens.jpg" aria-label="Miss Juneteenth USA pageant highlights">
-            <source src="/media/mjusa-pageant.m4v" type="video/mp4" />
-          </video>
-          <div className="video-caption"><span>THE MJUSA EXPERIENCE</span><small>Talent. Culture. Sisterhood. Service.</small></div>
-        </div>
+        <Image className="story-photo" src="/media/mjusa-queens.jpg" alt="Miss Juneteenth USA queens and leadership in Galveston, Texas" width={1920} height={1280} sizes="(max-width: 900px) 100vw, 60vw" />
         <blockquote>
           <span className="quote-mark">“</span>
           <p>We take great pride in magnifying Black Excellence and showcasing our queens to even higher levels of personal and professional achievement.</p>
@@ -97,14 +93,42 @@ export default function Home() {
         </blockquote>
       </section>
 
+      <section className="gallery" id="gallery">
+        <div className="gallery-heading">
+          <div className="section-label light"><span>03</span> Media gallery</div>
+          <p className="kicker">Moments in motion.</p>
+          <h2>See the <em>journey</em><br />come alive.</h2>
+          <p>From the national stage to community moments, experience the energy, sisterhood, and purpose behind Miss Juneteenth USA.</p>
+        </div>
+        <div className="media-gallery">
+          <article className="media-card featured">
+            <video controls playsInline preload="metadata" poster="/media/mjusa-queens.jpg" aria-label="National pageant highlights"><source src="/media/mjusa-pageant.m4v" type="video/mp4" /></video>
+            <div><span>01</span><h3>National Pageant</h3><small>Highlights</small></div>
+          </article>
+          <article className="media-card">
+            <video controls playsInline preload="metadata" poster="/media/mjusa-logo.png" aria-label="Juneteenth celebration video"><source src="/media/mjusa-june-off.m4v" type="video/mp4" /></video>
+            <div><span>02</span><h3>Juneteenth</h3><small>The celebration</small></div>
+          </article>
+          <article className="media-card">
+            <video controls playsInline preload="metadata" poster="/media/mjusa-queens.jpg" aria-label="Miss Juneteenth USA behind the scenes video one"><source src="/media/mjusa-dji-0013.m4v" type="video/mp4" /></video>
+            <div><span>03</span><h3>Behind the Scenes</h3><small>In the moment</small></div>
+          </article>
+          <article className="media-card">
+            <video controls playsInline preload="metadata" poster="/media/mjusa-queens.jpg" aria-label="Miss Juneteenth USA behind the scenes video two"><source src="/media/mjusa-dji-0014.m4v" type="video/mp4" /></video>
+            <div><span>04</span><h3>Making Memories</h3><small>Together</small></div>
+          </article>
+        </div>
+      </section>
+
       <section className="closing">
+        <Image className="closing-logo" src="/media/mjusa-logo.png" alt="Miss Juneteenth USA official logo" width={260} height={190} />
         <p className="eyebrow">YOUR JOURNEY STARTS HERE</p>
         <h2>Ready to step<br />into your <em>legacy?</em></h2>
         <a className="primary-button dark" href="mailto:info@missjuneteenthusa.org?subject=Start%20my%20MJUSA%20journey">Start your journey <span>↗</span></a>
       </section>
 
       <footer className="site-footer">
-        <a className="wordmark footer-mark" href="#top"><span className="crown-mark">♛</span><span>MISS JUNETEENTH <b>USA</b></span></a>
+        <a className="wordmark footer-mark" href="#top"><Image className="brand-logo" src="/media/mjusa-logo.png" alt="" width={66} height={52} /><span>MISS JUNETEENTH <b>USA</b></span></a>
         <p>Highlighting &amp; spotlighting African American youth across the nation.</p>
         <div><a href="mailto:info@missjuneteenthusa.org">info@missjuneteenthusa.org</a><a href="https://www.missjuneteenthusa.org">missjuneteenthusa.org</a></div>
         <small>© 2026 Miss Juneteenth USA. All rights reserved.</small>

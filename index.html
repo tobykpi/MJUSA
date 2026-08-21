@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A national scholarship pageant celebrating the brilliance, purpose, leadership, and cultural pride of young African American women.">
+  <title>Miss Juneteenth USA | Where History Meets Her Future</title>
+  <link rel="icon" href="./public/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --red:#a9152b; --cream:#f4eee3; --ink:#151312; --gold:#d3ad63; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--cream); color:var(--ink); font-family:"Inter",Arial,sans-serif; }
+    a { color:inherit; text-decoration:none; }
+    .site-header { height:86px; padding:0 4.5vw; display:flex; align-items:center; justify-content:space-between; background:#f8f3eb; position:relative; z-index:10; }
+    .wordmark { display:flex; align-items:center; gap:10px; font-size:12px; letter-spacing:.12em; line-height:1.15; }
+    .wordmark b { display:block; color:var(--red); letter-spacing:.33em; }
+    .brand-logo { width:66px; height:52px; object-fit:cover; object-position:center; border-radius:2px; }
+    .crown-mark { font-family:serif; font-size:28px; color:var(--gold); transform:rotate(180deg); display:inline-block; }
+    nav { display:flex; gap:34px; font-size:12px; text-transform:uppercase; letter-spacing:.1em; }
+    nav a { border-bottom:1px solid transparent; padding:8px 0; }
+    nav a:hover { border-color:var(--red); }
+    .header-cta,.primary-button { display:inline-flex; align-items:center; justify-content:space-between; gap:26px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; }
+    .header-cta { background:var(--red); color:white; padding:15px 20px; }
+    .hero { min-height:calc(100vh - 86px); height:760px; position:relative; overflow:hidden; color:white; }
+    .hero-image { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 44%; }
+    .hero-overlay { position:absolute; inset:0; background:linear-gradient(90deg,rgba(20,5,8,.75),rgba(20,5,8,.3) 48%,rgba(20,5,8,.12) 75%),linear-gradient(0deg,rgba(18,4,7,.58),transparent 55%); }
+    .hero-copy { position:absolute; inset:0; padding:10vh 7vw 7vh; display:flex; flex-direction:column; justify-content:space-between; align-items:flex-start; }
+    .eyebrow,.section-label,.kicker { text-transform:uppercase; letter-spacing:.22em; font-size:11px; font-weight:700; }
+    .eyebrow::before { content:""; display:inline-block; width:44px; height:1px; background:var(--gold); margin:0 14px 3px 0; }
+    h1,h2 { font-family:"Cormorant Garamond",Georgia,serif; font-weight:500; margin:0; line-height:.88; letter-spacing:-.045em; }
+    h1 { font-size:clamp(68px,9.4vw,145px); max-width:1000px; }
+    h1 em,h2 em { color:var(--gold); font-weight:500; }
+    .hero-lower { display:flex; align-items:flex-end; gap:55px; margin-left:34%; }
+    .hero-lower p { width:min(420px,38vw); font-family:"Cormorant Garamond",Georgia,serif; font-size:21px; line-height:1.3; margin:0; }
+    .primary-button { background:var(--cream); color:var(--ink); min-width:205px; padding:18px 20px; }
+    .primary-button span { color:var(--red); font-size:16px; }
+    .hero-stamp { position:absolute; right:4vw; bottom:5vh; width:120px; height:120px; border:1px solid rgba(255,255,255,.6); border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; transform:rotate(-8deg); }
+    .hero-stamp span { font-size:8px; letter-spacing:.16em; }
+    .hero-stamp b { font-family:"Cormorant Garamond",serif; font-size:34px; color:var(--gold); }
+    .hero-stamp small { font-size:7px; letter-spacing:.3em; }
+    .mission { padding:120px 7vw 100px; display:grid; grid-template-columns:1fr 3fr; gap:5vw; }
+    .section-label { display:flex; gap:16px; align-items:flex-start; }
+    .section-label span { color:var(--red); }
+    .mission-copy h2 { font-size:clamp(52px,7.2vw,110px); max-width:1000px; }
+    .kicker { color:var(--red); margin:0 0 28px; }
+    .mission-detail { margin:55px 0 0 34%; display:grid; grid-template-columns:1fr 1fr; gap:45px; max-width:750px; font-size:15px; line-height:1.75; }
+    .pillars { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid #cfc5b6; border-bottom:1px solid #cfc5b6; margin:0 7vw 120px; }
+    .pillar { padding:42px 32px 50px; border-right:1px solid #cfc5b6; min-height:285px; }
+    .pillar:last-child { border:0; }
+    .pillar>span { font-size:10px; color:var(--red); }
+    .pillar h3 { font-family:"Cormorant Garamond",serif; font-size:37px; margin:58px 0 14px; }
+    .pillar p { font-size:13px; line-height:1.65; margin:0; color:#5c5752; }
+    .program { background:var(--red); color:white; padding:115px 7vw; display:grid; grid-template-columns:.9fr 1.4fr; gap:9vw; }
+    .section-label.light span,.program .kicker { color:var(--gold); }
+    .program-intro h2 { font-size:clamp(50px,6vw,86px); margin:35px 0; }
+    .program-intro>p:last-child { max-width:430px; line-height:1.7; opacity:.8; font-size:14px; }
+    .division-list { border-top:1px solid rgba(255,255,255,.35); }
+    .division { min-height:145px; border-bottom:1px solid rgba(255,255,255,.35); display:grid; grid-template-columns:50px 1fr 1fr 30px; align-items:center; gap:20px; }
+    .division-number { color:var(--gold); font-size:10px; }
+    .division small { text-transform:uppercase; letter-spacing:.18em; font-size:9px; opacity:.65; }
+    .division h3 { font-family:"Cormorant Garamond",serif; font-size:40px; margin:7px 0 0; }
+    .division p { font-family:"Cormorant Garamond",serif; font-style:italic; font-size:18px; color:#f1d79f; }
+    .arrow { font-size:20px; }
+    .story { padding:120px 7vw; display:grid; grid-template-columns:1.3fr .8fr; gap:8vw; align-items:center; background:#181515; color:white; }
+    .story-photo { width:100%; height:auto; aspect-ratio:3/2; object-fit:cover; display:block; }
+    blockquote { margin:0; }
+    .quote-mark { font-family:"Cormorant Garamond",serif; font-size:100px; color:var(--gold); height:55px; display:block; }
+    .story blockquote p { font-family:"Cormorant Garamond",serif; font-size:clamp(30px,3.3vw,50px); line-height:1.08; margin:0 0 42px; }
+    .story blockquote footer { display:flex; flex-direction:column; gap:5px; text-transform:uppercase; font-size:10px; letter-spacing:.14em; }
+    .story blockquote footer span { color:var(--gold); }
+    .gallery { background:#211c1b; color:white; padding:120px 7vw; display:grid; grid-template-columns:.65fr 1.35fr; gap:8vw; align-items:start; }
+    .gallery-heading { position:sticky; top:40px; }
+    .gallery-heading .kicker { color:var(--gold); margin-top:48px; }
+    .gallery-heading h2 { font-size:clamp(54px,6.5vw,96px); }
+    .gallery-heading>p:last-child { max-width:420px; margin:42px 0 0; font-size:14px; line-height:1.75; opacity:.7; }
+    .media-gallery { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+    .media-card { border-top:1px solid #5d504b; padding-top:14px; }
+    .media-card.featured { grid-column:1/-1; }
+    .media-card video { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; background:#090807; }
+    .media-card>div { display:grid; grid-template-columns:28px 1fr auto; align-items:baseline; gap:12px; padding-top:16px; }
+    .media-card span { color:var(--gold); font-size:9px; }
+    .media-card h3 { font-family:"Cormorant Garamond",serif; font-size:26px; font-weight:500; margin:0; }
+    .media-card small { opacity:.5; text-transform:uppercase; letter-spacing:.12em; font-size:8px; }
+    .closing { padding:120px 7vw; min-height:630px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; background:var(--cream); }
+    .closing .eyebrow { color:var(--red); }
+    .closing h2 { font-size:clamp(65px,9vw,128px); margin:35px 0 55px; }
+    .primary-button.dark { background:var(--red); color:white; }
+    .closing-logo { width:230px; height:165px; object-fit:cover; margin-bottom:36px; box-shadow:0 18px 45px rgba(82,40,12,.16); }
+    .site-footer { background:#100e0d; color:white; padding:65px 7vw 35px; display:grid; grid-template-columns:1fr 1.3fr 1fr; gap:5vw; align-items:start; }
+    .footer-mark { color:white; }
+    .site-footer>p { font-family:"Cormorant Garamond",serif; font-size:22px; line-height:1.3; margin:0; }
+    .site-footer>div { display:flex; flex-direction:column; gap:12px; font-size:11px; letter-spacing:.06em; }
+    .site-footer>small { grid-column:1/-1; border-top:1px solid #332e2b; margin-top:50px; padding-top:25px; opacity:.45; font-size:9px; }
+    @media(max-width:900px) {
+      nav { display:none; }
+      .hero-lower { margin-left:0; }
+      .mission { grid-template-columns:1fr; }
+      .mission-detail { margin-left:0; }
+      .pillars { grid-template-columns:1fr 1fr; }
+      .pillar:nth-child(2) { border-right:0; }
+      .program,.story,.gallery { grid-template-columns:1fr; }
+      .gallery-heading { position:static; }
+      .site-footer { grid-template-columns:1fr 1fr; }
+      .site-footer>p { grid-column:2; }
+      .site-footer>div { grid-column:1/-1; }
+    }
+    @media(max-width:600px) {
+      .site-header { height:72px; padding:0 20px; }
+      .brand-logo { width:50px; height:40px; }
+      .header-cta { padding:12px 14px; min-width:auto; gap:10px; }
+      .header-cta span { display:none; }
+      .hero { height:760px; min-height:calc(100vh - 72px); }
+      .hero-copy { padding:10vh 22px 8vh; }
+      .hero-image { object-position:58% center; }
+      .hero-overlay { background:linear-gradient(90deg,rgba(20,5,8,.72),rgba(20,5,8,.15)),linear-gradient(0deg,rgba(18,4,7,.75),transparent 65%); }
+      .hero-lower { flex-direction:column; align-items:flex-start; gap:28px; }
+      .hero-lower p { width:100%; font-size:18px; }
+      .hero-stamp { display:none; }
+      .mission,.program,.story,.gallery,.closing { padding:85px 22px; }
+      .mission-detail { grid-template-columns:1fr; gap:10px; margin-top:38px; }
+      .pillars { margin:0 22px 85px; grid-template-columns:1fr; }
+      .pillar { border-right:0; border-bottom:1px solid #cfc5b6; min-height:auto; }
+      .pillar h3 { margin-top:32px; }
+      .division { grid-template-columns:35px 1fr 25px; }
+      .division p { display:none; }
+      .story { gap:55px; }
+      .media-gallery { grid-template-columns:1fr; }
+      .media-card.featured { grid-column:auto; }
+      .media-card>div { grid-template-columns:24px 1fr; }
+      .media-card small { display:none; }
+      .site-footer { padding:55px 22px 28px; grid-template-columns:1fr; }
+      .site-footer>p,.site-footer>div { grid-column:1; }
+      .wordmark { font-size:10px; }
+    }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="Miss Juneteenth USA home"><img class="brand-logo" src="./public/media/mjusa-logo.png" alt="Miss Juneteenth USA logo"><span>MISS JUNETEENTH <b>USA</b></span></a>
+      <nav aria-label="Main navigation"><a href="#mission">Our mission</a><a href="#program">The program</a><a href="#story">Our story</a><a href="#gallery">Gallery</a></nav>
+      <a class="header-cta" href="mailto:info@missjuneteenthusa.org?subject=Start%20my%20MJUSA%20journey">Get involved <span>↗</span></a>
+    </header>
+
+    <section class="hero" id="top">
+      <img class="hero-image" src="./public/media/mjusa-queens.jpg" alt="Miss Juneteenth USA queens and leadership gathered together">
+      <div class="hero-overlay"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">A NATIONAL SCHOLARSHIP PAGEANT</p>
+        <h1>Where history<br>meets <em>her</em> future.</h1>
+        <div class="hero-lower"><p>Celebrating the brilliance, purpose, and promise of young African American women—one crown, one community, one legacy at a time.</p><a class="primary-button" href="#mission">Discover MJUSA <span>↓</span></a></div>
+      </div>
+      <div class="hero-stamp" aria-hidden="true"><span>BLACK EXCELLENCE</span><b>1865</b><small>FORWARD</small></div>
+    </section>
+
+    <section class="mission" id="mission">
+      <div class="section-label"><span>01</span> Our mission</div>
+      <div class="mission-copy"><p class="kicker">More than a pageant.</p><h2>A platform for <em>bold</em>, brilliant &amp; beautiful young women.</h2><div class="mission-detail"><p>Miss Juneteenth USA spotlights African American youth from across the country—nurturing confidence, leadership, cultural pride, and a lifelong commitment to service.</p><p>Our queens are ambassadors of Juneteenth: prepared to speak with purpose, lead with grace, and create change in the communities they call home.</p></div></div>
+    </section>
+
+    <section class="pillars" aria-label="Program values">
+      <article class="pillar"><span>01</span><h3>Culture</h3><p>Honoring Juneteenth history and the generations whose courage made freedom possible.</p></article>
+      <article class="pillar"><span>02</span><h3>Scholarship</h3><p>Championing young women who pursue academic excellence with focus and imagination.</p></article>
+      <article class="pillar"><span>03</span><h3>Service</h3><p>Turning platforms into action through meaningful work in local communities.</p></article>
+      <article class="pillar"><span>04</span><h3>Sisterhood</h3><p>Creating a national network where young women are seen, celebrated, and supported.</p></article>
+    </section>
+
+    <section class="program" id="program">
+      <div class="program-intro"><div class="section-label light"><span>02</span> The program</div><p class="kicker">A journey with purpose.</p><h2>Three divisions.<br>One powerful legacy.</h2><p>Contestants grow through interview, talent, stage presence, cultural learning, community service, and the development of a personal platform.</p></div>
+      <div class="division-list">
+        <article class="division"><span class="division-number">01</span><div><small>Ages 7-10</small><h3>Little Miss</h3></div><p>Confidence begins here.</p><span class="arrow">↗</span></article>
+        <article class="division"><span class="division-number">02</span><div><small>Ages 11-14</small><h3>Junior Miss</h3></div><p>Purpose takes the stage.</p><span class="arrow">↗</span></article>
+        <article class="division"><span class="division-number">03</span><div><small>Ages 15-18</small><h3>Miss</h3></div><p>Leadership wears the crown.</p><span class="arrow">↗</span></article>
+      </div>
+    </section>
+
+    <section class="story" id="story">
+      <img class="story-photo" src="./public/media/mjusa-queens.jpg" alt="Miss Juneteenth USA queens and leadership in Galveston, Texas">
+      <blockquote><span class="quote-mark">“</span><p>We take great pride in magnifying Black Excellence and showcasing our queens to even higher levels of personal and professional achievement.</p><footer><b>Sylvia Lewis-Harris</b><span>President &amp; Founder</span></footer></blockquote>
+    </section>
+
+    <section class="gallery" id="gallery">
+      <div class="gallery-heading"><div class="section-label light"><span>03</span> Media gallery</div><p class="kicker">Moments in motion.</p><h2>See the <em>journey</em><br>come alive.</h2><p>From the national stage to community moments, experience the energy, sisterhood, and purpose behind Miss Juneteenth USA.</p></div>
+      <div class="media-gallery">
+        <article class="media-card featured"><video controls playsinline preload="metadata" poster="./public/media/mjusa-queens.jpg" aria-label="National pageant highlights"><source src="./public/media/mjusa-pageant.m4v" type="video/mp4"></video><div><span>01</span><h3>National Pageant</h3><small>Highlights</small></div></article>
+        <article class="media-card"><video controls playsinline preload="metadata" poster="./public/media/mjusa-logo.png" aria-label="Juneteenth celebration video"><source src="./public/media/mjusa-june-off.m4v" type="video/mp4"></video><div><span>02</span><h3>Juneteenth</h3><small>The celebration</small></div></article>
+        <article class="media-card"><video controls playsinline preload="metadata" poster="./public/media/mjusa-queens.jpg" aria-label="Miss Juneteenth USA behind the scenes video one"><source src="./public/media/mjusa-dji-0013.m4v" type="video/mp4"></video><div><span>03</span><h3>Behind the Scenes</h3><small>In the moment</small></div></article>
+        <article class="media-card"><video controls playsinline preload="metadata" poster="./public/media/mjusa-queens.jpg" aria-label="Miss Juneteenth USA behind the scenes video two"><source src="./public/media/mjusa-dji-0014.m4v" type="video/mp4"></video><div><span>04</span><h3>Making Memories</h3><small>Together</small></div></article>
+      </div>
+    </section>
+
+    <section class="closing"><img class="closing-logo" src="./public/media/mjusa-logo.png" alt="Miss Juneteenth USA official logo"><p class="eyebrow">YOUR JOURNEY STARTS HERE</p><h2>Ready to step<br>into your <em>legacy?</em></h2><a class="primary-button dark" href="mailto:info@missjuneteenthusa.org?subject=Start%20my%20MJUSA%20journey">Start your journey <span>↗</span></a></section>
+
+    <footer class="site-footer">
+      <a class="wordmark footer-mark" href="#top"><img class="brand-logo" src="./public/media/mjusa-logo.png" alt=""><span>MISS JUNETEENTH <b>USA</b></span></a>
+      <p>Highlighting &amp; spotlighting African American youth across the nation.</p>
+      <div><a href="mailto:info@missjuneteenthusa.org">info@missjuneteenthusa.org</a><a href="https://www.missjuneteenthusa.org">missjuneteenthusa.org</a></div>
+      <small>© 2026 Miss Juneteenth USA. All rights reserved.</small>
+    </footer>
+  </main>
+</body>
+</html>
