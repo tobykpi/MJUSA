@@ -43,6 +43,8 @@
     .hero-stamp b { font-family:"Cormorant Garamond",serif; font-size:34px; color:var(--gold); }
     .hero-stamp small { font-size:7px; letter-spacing:.3em; }
     .mission { padding:120px 7vw 100px; display:grid; grid-template-columns:1fr 3fr; gap:5vw; }
+    .mission-aside { display:flex; flex-direction:column; justify-content:space-between; min-height:570px; padding-bottom:20px; }
+    .mission-logo { width:min(100%,290px); height:auto; object-fit:contain; filter:drop-shadow(0 16px 22px rgba(82,40,12,.14)); }
     .section-label { display:flex; gap:16px; align-items:flex-start; }
     .section-label span { color:var(--red); }
     .mission-copy h2 { font-size:clamp(52px,7.2vw,110px); max-width:1000px; }
@@ -99,6 +101,8 @@
       nav { display:none; }
       .hero-lower { margin-left:0; }
       .mission { grid-template-columns:1fr; }
+      .mission-aside { min-height:auto; flex-direction:row; align-items:center; }
+      .mission-logo { width:180px; }
       .mission-detail { margin-left:0; }
       .pillars { grid-template-columns:1fr 1fr; }
       .pillar:nth-child(2) { border-right:0; }
@@ -122,6 +126,8 @@
       .hero-stamp { display:none; }
       .mission,.program,.story,.gallery,.closing { padding:85px 22px; }
       .mission-detail { grid-template-columns:1fr; gap:10px; margin-top:38px; }
+      .mission-aside { align-items:flex-start; }
+      .mission-logo { width:125px; }
       .pillars { margin:0 22px 85px; grid-template-columns:1fr; }
       .pillar { border-right:0; border-bottom:1px solid #cfc5b6; min-height:auto; }
       .pillar h3 { margin-top:32px; }
@@ -159,7 +165,7 @@
     </section>
 
     <section class="mission" id="mission">
-      <div class="section-label"><span>01</span> Our mission</div>
+      <div class="mission-aside"><div class="section-label"><span>01</span> Our mission</div><img class="mission-logo" src="./public/media/mjusa-logo-transparent.png" alt="Miss Juneteenth USA official logo"></div>
       <div class="mission-copy"><p class="kicker">More than a pageant.</p><h2>A platform for <em>bold</em>, brilliant &amp; beautiful young women.</h2><div class="mission-detail"><p>Miss Juneteenth USA spotlights African American youth from across the country—nurturing confidence, leadership, cultural pride, and a lifelong commitment to service.</p><p>Our queens are ambassadors of Juneteenth: prepared to speak with purpose, lead with grace, and create change in the communities they call home.</p></div></div>
     </section>
 

@@ -45,7 +45,10 @@ export default function Home() {
       </section>
 
       <section className="mission" id="mission">
-        <div className="section-label"><span>01</span> Our mission</div>
+        <div className="mission-aside">
+          <div className="section-label"><span>01</span> Our mission</div>
+          <Image className="mission-logo" src="/media/mjusa-logo-transparent.png" alt="Miss Juneteenth USA official logo" width={320} height={245} />
+        </div>
         <div className="mission-copy">
           <p className="kicker">More than a pageant.</p>
           <h2>A platform for <em>bold</em>, brilliant &amp; beautiful young women.</h2>
