@@ -128,7 +128,7 @@ export default function Home() {
         <a className="wordmark footer-mark" href="#top"><Image className="brand-logo" src="/media/mjusa-logo-transparent.png" alt="" width={66} height={52} /><span>MISS JUNETEENTH <b>USA</b></span></a>
         <p>Highlighting &amp; spotlighting African American youth across the nation.</p>
         <div><a href="mailto:Info@MJUSAnationals.com">Info@MJUSAnationals.com</a></div>
-        <small>© 2026 Miss Juneteenth USA. All rights reserved.</small>
+        <small className="copyright">© 2026 Miss Juneteenth USA. All Rights Reserved.</small>
       </footer>
     </main>
   );
