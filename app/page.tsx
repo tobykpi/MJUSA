@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SiteEffects from "./site-effects";
 
 const divisions = [
   { ages: "Ages 7-10", name: "Little Miss", note: "Confidence begins here." },
@@ -16,6 +17,7 @@ const pillars = [
 export default function Home() {
   return (
     <main>
+      <SiteEffects />
       <header className="site-header">
         <a className="wordmark" href="#top" aria-label="Miss Juneteenth USA home">
           <Image className="brand-logo" src="/media/mjusa-logo-transparent.png" alt="Miss Juneteenth USA logo" width={66} height={52} priority />

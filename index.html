@@ -150,7 +150,24 @@
       .site-footer>p,.site-footer>div { grid-column:1; }
       .wordmark { font-size:10px; }
     }
-    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+    body { overflow-x:hidden; }
+    .site-header { box-shadow:0 1px 0 rgba(211,173,99,.22),0 12px 35px rgba(50,7,18,.08); }
+    .brand-logo { animation:crownFloat 4.8s ease-in-out infinite; filter:drop-shadow(0 0 12px rgba(211,173,99,.28)); }
+    .hero-image { animation:heroDrift 14s ease-in-out infinite alternate; }
+    .hero-copy h1 { text-shadow:0 4px 28px rgba(0,0,0,.45),0 0 36px rgba(211,173,99,.14); animation:titleRise 1s cubic-bezier(.2,.75,.25,1) both; }
+    .hero-copy .eyebrow { animation:titleRise .8s .15s cubic-bezier(.2,.75,.25,1) both; }.hero-lower { animation:titleRise .9s .3s cubic-bezier(.2,.75,.25,1) both; }
+    .hero-stamp { box-shadow:inset 0 0 24px rgba(211,173,99,.16),0 0 34px rgba(211,173,99,.2); animation:stampPulse 4s ease-in-out infinite; }
+    .header-cta,.primary-button { position:relative; isolation:isolate; transition:transform .3s ease,box-shadow .3s ease; }.header-cta:hover,.primary-button:hover { transform:perspective(600px) translateY(-4px) rotateX(4deg); box-shadow:0 14px 30px rgba(88,8,28,.25),0 0 22px rgba(211,173,99,.2); }
+    .mission,.program,.story,.gallery,.closing { position:relative; isolation:isolate; }.mission::after,.closing::after { content:""; position:absolute; width:420px; height:420px; border-radius:50%; background:radial-gradient(circle,rgba(211,173,99,.2),transparent 68%); filter:blur(25px); pointer-events:none; z-index:-1; }.mission::after { right:-180px; top:5%; }.closing::after { left:50%; bottom:4%; transform:translateX(-50%); }
+    .mission-logo,.closing-logo { transition:transform .55s cubic-bezier(.2,.75,.2,1),filter .55s ease; }.mission-logo:hover,.closing-logo:hover { transform:perspective(800px) rotateY(-8deg) rotateX(4deg) translateY(-7px) scale(1.03); filter:drop-shadow(0 22px 28px rgba(122,58,13,.25)) drop-shadow(0 0 20px rgba(211,173,99,.28)); }
+    .pillar { transform-style:preserve-3d; transition:transform .4s cubic-bezier(.2,.75,.2,1),background .4s ease,box-shadow .4s ease; }.pillar:hover { transform:perspective(850px) translateY(-10px) rotateX(3deg); background:rgba(255,255,255,.42); box-shadow:0 20px 42px rgba(86,39,20,.12),inset 0 2px 0 rgba(211,173,99,.55); z-index:2; }.pillar h3 { transition:color .3s ease,text-shadow .3s ease,transform .3s ease; }.pillar:hover h3 { color:var(--red); text-shadow:0 0 20px rgba(169,21,43,.15); transform:translateZ(24px); }
+    .program::before,.gallery::before { content:""; position:absolute; inset:0; pointer-events:none; z-index:-1; background:radial-gradient(circle at 12% 18%,rgba(211,173,99,.16),transparent 25%),radial-gradient(circle at 88% 75%,rgba(169,21,43,.18),transparent 30%); }
+    .division { transition:transform .35s ease,background .35s ease,padding .35s ease,box-shadow .35s ease; }.division:hover { transform:perspective(800px) translateX(10px) rotateY(-1deg); padding-left:16px; padding-right:16px; background:rgba(255,255,255,.06); box-shadow:inset 3px 0 var(--gold),0 10px 25px rgba(60,0,12,.14); }
+    .story-photo { box-shadow:22px 24px 0 rgba(169,21,43,.18),0 30px 70px rgba(0,0,0,.35); transition:transform .6s cubic-bezier(.2,.75,.2,1),box-shadow .6s ease; }.story-photo:hover { transform:perspective(1200px) rotateY(3deg) rotateX(-2deg) scale(1.015); box-shadow:30px 32px 0 rgba(211,173,99,.16),0 42px 80px rgba(0,0,0,.45); }.quote-mark { text-shadow:0 0 24px rgba(211,173,99,.46); animation:goldGlow 3s ease-in-out infinite; }
+    .media-card { transform-style:preserve-3d; transition:transform .45s cubic-bezier(.2,.75,.2,1),filter .45s ease; }.media-card:hover { transform:perspective(1100px) translateY(-8px) rotateX(1.5deg); filter:drop-shadow(0 24px 34px rgba(0,0,0,.3)); }.media-card iframe,.youtube-fallback { box-shadow:0 0 0 1px rgba(211,173,99,.18),0 20px 45px rgba(0,0,0,.3); transition:box-shadow .4s ease; }.media-card:hover iframe,.media-card:hover .youtube-fallback { box-shadow:0 0 0 1px rgba(211,173,99,.58),0 0 28px rgba(211,173,99,.16),0 28px 55px rgba(0,0,0,.4); }.youtube-play { animation:playGlow 2.2s ease-in-out infinite; }
+    .reveal { opacity:0; transform:translateY(34px) scale(.985); transition:opacity .8s var(--reveal-delay,0ms) cubic-bezier(.2,.75,.25,1),transform .8s var(--reveal-delay,0ms) cubic-bezier(.2,.75,.25,1); }.reveal.is-visible { opacity:1; transform:none; }
+    @keyframes heroDrift { from { transform:scale(1.01); } to { transform:scale(1.055) translate3d(-.5%,.4%,0); } } @keyframes titleRise { from { opacity:0; transform:translateY(28px) rotateX(-8deg); } to { opacity:1; transform:none; } } @keyframes crownFloat { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-4px); } } @keyframes stampPulse { 0%,100% { box-shadow:inset 0 0 24px rgba(211,173,99,.16),0 0 24px rgba(211,173,99,.14); } 50% { box-shadow:inset 0 0 32px rgba(211,173,99,.24),0 0 42px rgba(211,173,99,.28); } } @keyframes goldGlow { 0%,100% { opacity:.85; } 50% { opacity:1; text-shadow:0 0 34px rgba(211,173,99,.72); } } @keyframes playGlow { 0%,100% { box-shadow:0 8px 30px rgba(0,0,0,.4),0 0 0 0 rgba(255,0,51,.35); } 50% { box-shadow:0 8px 30px rgba(0,0,0,.4),0 0 0 12px rgba(255,0,51,0); } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; }.brand-logo,.hero-image,.hero-copy h1,.hero-copy .eyebrow,.hero-lower,.hero-stamp,.quote-mark,.youtube-play { animation:none!important; }.reveal { opacity:1; transform:none; transition:none; }*,*::before,*::after { scroll-behavior:auto!important; transition-duration:.01ms!important; } }
   </style>
 </head>
 <body>
@@ -215,5 +232,11 @@
       <small>© 2026 Miss Juneteenth USA. All rights reserved.</small>
     </footer>
   </main>
+  <script>
+    const revealTargets=document.querySelectorAll('.mission-aside,.mission-copy,.pillar,.program-intro,.division,.story-photo,.story blockquote,.gallery-heading,.media-card,.closing-logo,.closing h2,.site-footer > *');
+    revealTargets.forEach((element,index)=>{element.classList.add('reveal');element.style.setProperty('--reveal-delay',`${Math.min(index%4,3)*80}ms`)});
+    const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>entry.isIntersecting&&entry.target.classList.add('is-visible')),{threshold:.12,rootMargin:'0px 0px -45px'});
+    revealTargets.forEach(element=>revealObserver.observe(element));
+  </script>
 </body>
 </html>
