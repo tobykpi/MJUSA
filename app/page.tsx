@@ -109,7 +109,7 @@ export default function Home() {
             <div><span>01</span><h3>MJUSA Spotlight</h3><small>Official video</small></div>
           </article>
           <article className="media-card">
-            <iframe src="https://www.youtube-nocookie.com/embed/pSEQeyp-zi8" title="Miss Juneteenth USA video feature two" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+            <a className="youtube-fallback" href="https://www.youtube.com/watch?v=pSEQeyp-zi8" target="_blank" rel="noreferrer" aria-label="Watch Miss Juneteenth USA video feature two on YouTube"><img src="https://i.ytimg.com/vi/pSEQeyp-zi8/hqdefault.jpg" alt="Miss Juneteenth USA video preview" /><span className="youtube-play" aria-hidden="true">▶</span></a>
             <div><span>02</span><h3>MJUSA in Motion</h3><small>Official video</small></div>
           </article>
         </div>
