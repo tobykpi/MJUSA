@@ -105,12 +105,12 @@ export default function Home() {
         </div>
         <div className="media-gallery">
           <article className="media-card featured">
-            <video controls playsInline preload="metadata" poster="/media/mjusa-queens.jpg" aria-label="National pageant highlights"><source src="/media/mjusa-pageant.m4v" type="video/mp4" /></video>
-            <div><span>01</span><h3>National Pageant</h3><small>Highlights</small></div>
+            <iframe src="https://www.youtube-nocookie.com/embed/awfwAR73MtU" title="Miss Juneteenth USA video feature one" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+            <div><span>01</span><h3>MJUSA Spotlight</h3><small>Official video</small></div>
           </article>
           <article className="media-card">
-            <video controls playsInline preload="metadata" poster="/media/mjusa-logo-transparent.png" aria-label="Juneteenth celebration video"><source src="/media/mjusa-june-off.m4v" type="video/mp4" /></video>
-            <div><span>02</span><h3>Juneteenth</h3><small>The celebration</small></div>
+            <iframe src="https://www.youtube-nocookie.com/embed/pSEQeyp-zi8" title="Miss Juneteenth USA video feature two" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+            <div><span>02</span><h3>MJUSA in Motion</h3><small>Official video</small></div>
           </article>
         </div>
       </section>
