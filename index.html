@@ -25,14 +25,14 @@
     nav a:hover { border-color:var(--red); }
     .header-cta,.primary-button { display:inline-flex; align-items:center; justify-content:space-between; gap:26px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; }
     .header-cta { background:var(--red); color:white; padding:15px 20px; }
-    .hero { min-height:calc(100vh - 86px); height:760px; position:relative; overflow:hidden; color:white; display:grid; grid-template-columns:64% 36%; background:#681021; }
-    .hero-image { width:100%; height:100%; object-fit:cover; object-position:center 44%; }
-    .hero-overlay { display:none; }
-    .hero-copy { position:relative; padding:9vh 4vw 7vh; display:flex; flex-direction:column; justify-content:space-between; align-items:flex-start; background:linear-gradient(145deg,#681021,#2a0b13); }
+    .hero { min-height:calc(100vh - 86px); height:760px; position:relative; overflow:hidden; color:white; background:#681021; }
+    .hero-image { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 44%; }
+    .hero-overlay { position:absolute; inset:0; background:linear-gradient(90deg,transparent 52%,rgba(42,11,19,.25) 63%,rgba(42,11,19,.9) 100%); }
+    .hero-copy { position:absolute; inset:0 0 0 auto; width:36%; padding:9vh 3.5vw 7vh 5vw; display:flex; flex-direction:column; justify-content:space-between; align-items:flex-start; }
     .eyebrow,.section-label,.kicker { text-transform:uppercase; letter-spacing:.22em; font-size:11px; font-weight:700; }
     .eyebrow::before { content:""; display:inline-block; width:44px; height:1px; background:var(--gold); margin:0 14px 3px 0; }
     h1,h2 { font-family:"Cormorant Garamond",Georgia,serif; font-weight:500; margin:0; line-height:.88; letter-spacing:-.045em; }
-    h1 { font-size:clamp(58px,5.2vw,94px); max-width:580px; }
+    h1 { font-size:clamp(56px,4.8vw,90px); max-width:560px; }
     h1 em,h2 em { color:var(--gold); font-weight:500; }
     .hero-lower { display:flex; flex-direction:column; align-items:flex-start; gap:28px; margin-left:0; }
     .hero-lower p { width:100%; max-width:390px; font-family:"Cormorant Garamond",Georgia,serif; font-size:20px; line-height:1.3; margin:0; }
@@ -82,7 +82,11 @@
     .media-gallery { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
     .media-card { border-top:1px solid #5d504b; padding-top:14px; }
     .media-card.featured { grid-column:1/-1; }
-    .media-card iframe { display:block; width:100%; aspect-ratio:16/9; border:0; background:#090807; }
+    .media-card iframe,.youtube-fallback { display:block; width:100%; aspect-ratio:16/9; border:0; background:#090807; }
+    .youtube-fallback { position:relative; overflow:hidden; }
+    .youtube-fallback img { width:100%; height:100%; object-fit:cover; display:block; }
+    .youtube-play { position:absolute; inset:50% auto auto 50%; transform:translate(-50%,-50%); width:76px; height:54px; border-radius:14px; background:#ff0033; color:white!important; display:grid; place-items:center; font-size:28px!important; padding-left:4px; box-shadow:0 8px 30px rgba(0,0,0,.4); }
+    .youtube-fallback:hover .youtube-play { transform:translate(-50%,-50%) scale(1.08); }
     .media-card>div { display:grid; grid-template-columns:28px 1fr auto; align-items:baseline; gap:12px; padding-top:16px; }
     .media-card span { color:var(--gold); font-size:9px; }
     .media-card h3 { font-family:"Cormorant Garamond",serif; font-size:26px; font-weight:500; margin:0; }
@@ -99,9 +103,10 @@
     .site-footer>small { grid-column:1/-1; border-top:1px solid #332e2b; margin-top:50px; padding-top:25px; opacity:.45; font-size:9px; }
     @media(max-width:900px) {
       nav { display:none; }
-      .hero { height:auto; min-height:0; grid-template-columns:1fr; }
-      .hero-image { aspect-ratio:3/2; }
-      .hero-copy { min-height:570px; padding:70px 7vw; }
+      .hero { height:auto; min-height:0; padding-top:66.67%; }
+      .hero-image { height:auto; aspect-ratio:3/2; }
+      .hero-overlay { top:auto; height:62%; background:linear-gradient(0deg,rgba(42,11,19,.98),rgba(42,11,19,.78),transparent); }
+      .hero-copy { position:relative; width:100%; min-height:570px; padding:70px 7vw; background:#681021; }
       .hero-stamp { top:calc(66vw - 145px); bottom:auto; }
       .hero-lower { margin-left:0; }
       .mission { grid-template-columns:1fr; }
@@ -197,7 +202,7 @@
       <div class="gallery-heading"><div class="section-label light"><span>03</span> Media gallery</div><p class="kicker">Moments in motion.</p><h2>See the <em>journey</em><br>come alive.</h2><p>From the national stage to community moments, experience the energy, sisterhood, and purpose behind Miss Juneteenth USA.</p></div>
       <div class="media-gallery">
         <article class="media-card featured"><iframe src="https://www.youtube-nocookie.com/embed/awfwAR73MtU" title="Miss Juneteenth USA video feature one" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><div><span>01</span><h3>MJUSA Spotlight</h3><small>Official video</small></div></article>
-        <article class="media-card"><iframe src="https://www.youtube-nocookie.com/embed/pSEQeyp-zi8" title="Miss Juneteenth USA video feature two" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><div><span>02</span><h3>MJUSA in Motion</h3><small>Official video</small></div></article>
+        <article class="media-card"><a class="youtube-fallback" href="https://www.youtube.com/watch?v=pSEQeyp-zi8" target="_blank" rel="noreferrer" aria-label="Watch Miss Juneteenth USA video feature two on YouTube"><img src="https://i.ytimg.com/vi/pSEQeyp-zi8/hqdefault.jpg" alt="Miss Juneteenth USA video preview"><span class="youtube-play" aria-hidden="true">▶</span></a><div><span>02</span><h3>MJUSA in Motion</h3><small>Official video</small></div></article>
       </div>
     </section>
 
