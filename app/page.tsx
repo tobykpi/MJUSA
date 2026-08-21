@@ -27,7 +27,7 @@ export default function Home() {
           <a href="#story">Our story</a>
           <a href="#gallery">Gallery</a>
         </nav>
-        <a className="header-cta" href="mailto:info@missjuneteenthusa.org?subject=Start%20my%20MJUSA%20journey">Get involved <span>↗</span></a>
+        <a className="header-cta" href="mailto:Info@MJUSAnationals.com?subject=Start%20my%20MJUSA%20journey">Get involved <span>↗</span></a>
       </header>
 
       <section className="hero" id="top">
@@ -119,13 +119,13 @@ export default function Home() {
         <Image className="closing-logo" src="/media/mjusa-logo-transparent.png" alt="Miss Juneteenth USA official logo" width={260} height={190} />
         <p className="eyebrow">YOUR JOURNEY STARTS HERE</p>
         <h2>Ready to step<br />into your <em>legacy?</em></h2>
-        <a className="primary-button dark" href="mailto:info@missjuneteenthusa.org?subject=Start%20my%20MJUSA%20journey">Start your journey <span>↗</span></a>
+        <a className="primary-button dark" href="mailto:Info@MJUSAnationals.com?subject=Start%20my%20MJUSA%20journey">Start your journey <span>↗</span></a>
       </section>
 
       <footer className="site-footer">
         <a className="wordmark footer-mark" href="#top"><Image className="brand-logo" src="/media/mjusa-logo-transparent.png" alt="" width={66} height={52} /><span>MISS JUNETEENTH <b>USA</b></span></a>
         <p>Highlighting &amp; spotlighting African American youth across the nation.</p>
-        <div><a href="mailto:info@missjuneteenthusa.org">info@missjuneteenthusa.org</a><a href="https://www.missjuneteenthusa.org">missjuneteenthusa.org</a></div>
+        <div><a href="mailto:Info@MJUSAnationals.com">Info@MJUSAnationals.com</a><a href="https://www.missjuneteenthusa.org">missjuneteenthusa.org</a></div>
         <small>© 2026 Miss Juneteenth USA. All rights reserved.</small>
       </footer>
     </main>

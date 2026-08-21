@@ -25,20 +25,20 @@
     nav a:hover { border-color:var(--red); }
     .header-cta,.primary-button { display:inline-flex; align-items:center; justify-content:space-between; gap:26px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; }
     .header-cta { background:var(--red); color:white; padding:15px 20px; }
-    .hero { min-height:calc(100vh - 86px); height:760px; position:relative; overflow:hidden; color:white; }
-    .hero-image { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 44%; }
-    .hero-overlay { position:absolute; inset:0; background:linear-gradient(90deg,rgba(20,5,8,.75),rgba(20,5,8,.3) 48%,rgba(20,5,8,.12) 75%),linear-gradient(0deg,rgba(18,4,7,.58),transparent 55%); }
-    .hero-copy { position:absolute; inset:0; padding:10vh 7vw 7vh; display:flex; flex-direction:column; justify-content:space-between; align-items:flex-start; }
+    .hero { min-height:calc(100vh - 86px); height:760px; position:relative; overflow:hidden; color:white; display:grid; grid-template-columns:64% 36%; background:#681021; }
+    .hero-image { width:100%; height:100%; object-fit:cover; object-position:center 44%; }
+    .hero-overlay { display:none; }
+    .hero-copy { position:relative; padding:9vh 4vw 7vh; display:flex; flex-direction:column; justify-content:space-between; align-items:flex-start; background:linear-gradient(145deg,#681021,#2a0b13); }
     .eyebrow,.section-label,.kicker { text-transform:uppercase; letter-spacing:.22em; font-size:11px; font-weight:700; }
     .eyebrow::before { content:""; display:inline-block; width:44px; height:1px; background:var(--gold); margin:0 14px 3px 0; }
     h1,h2 { font-family:"Cormorant Garamond",Georgia,serif; font-weight:500; margin:0; line-height:.88; letter-spacing:-.045em; }
-    h1 { font-size:clamp(68px,9.4vw,145px); max-width:1000px; }
+    h1 { font-size:clamp(58px,5.2vw,94px); max-width:580px; }
     h1 em,h2 em { color:var(--gold); font-weight:500; }
-    .hero-lower { display:flex; align-items:flex-end; gap:55px; margin-left:34%; }
-    .hero-lower p { width:min(420px,38vw); font-family:"Cormorant Garamond",Georgia,serif; font-size:21px; line-height:1.3; margin:0; }
+    .hero-lower { display:flex; flex-direction:column; align-items:flex-start; gap:28px; margin-left:0; }
+    .hero-lower p { width:100%; max-width:390px; font-family:"Cormorant Garamond",Georgia,serif; font-size:20px; line-height:1.3; margin:0; }
     .primary-button { background:var(--cream); color:var(--ink); min-width:205px; padding:18px 20px; }
     .primary-button span { color:var(--red); font-size:16px; }
-    .hero-stamp { position:absolute; right:4vw; bottom:5vh; width:120px; height:120px; border:1px solid rgba(255,255,255,.6); border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; transform:rotate(-8deg); }
+    .hero-stamp { position:absolute; left:4vw; bottom:5vh; width:120px; height:120px; border:1px solid rgba(255,255,255,.75); background:rgba(20,5,8,.46); border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; transform:rotate(-8deg); }
     .hero-stamp span { font-size:8px; letter-spacing:.16em; }
     .hero-stamp b { font-family:"Cormorant Garamond",serif; font-size:34px; color:var(--gold); }
     .hero-stamp small { font-size:7px; letter-spacing:.3em; }
@@ -99,6 +99,10 @@
     .site-footer>small { grid-column:1/-1; border-top:1px solid #332e2b; margin-top:50px; padding-top:25px; opacity:.45; font-size:9px; }
     @media(max-width:900px) {
       nav { display:none; }
+      .hero { height:auto; min-height:0; grid-template-columns:1fr; }
+      .hero-image { aspect-ratio:3/2; }
+      .hero-copy { min-height:570px; padding:70px 7vw; }
+      .hero-stamp { top:calc(66vw - 145px); bottom:auto; }
       .hero-lower { margin-left:0; }
       .mission { grid-template-columns:1fr; }
       .mission-aside { min-height:auto; flex-direction:row; align-items:center; }
@@ -117,10 +121,9 @@
       .brand-logo { width:50px; height:40px; }
       .header-cta { padding:12px 14px; min-width:auto; gap:10px; }
       .header-cta span { display:none; }
-      .hero { height:760px; min-height:calc(100vh - 72px); }
-      .hero-copy { padding:10vh 22px 8vh; }
-      .hero-image { object-position:58% center; }
-      .hero-overlay { background:linear-gradient(90deg,rgba(20,5,8,.72),rgba(20,5,8,.15)),linear-gradient(0deg,rgba(18,4,7,.75),transparent 65%); }
+      .hero-copy { min-height:540px; padding:58px 22px; }
+      .hero-copy h1 { font-size:clamp(54px,18vw,76px); }
+      .hero-image { object-position:center center; }
       .hero-lower { flex-direction:column; align-items:flex-start; gap:28px; }
       .hero-lower p { width:100%; font-size:18px; }
       .hero-stamp { display:none; }
@@ -150,7 +153,7 @@
     <header class="site-header">
       <a class="wordmark" href="#top" aria-label="Miss Juneteenth USA home"><img class="brand-logo" src="./public/media/mjusa-logo-transparent.png" alt="Miss Juneteenth USA logo"><span>MISS JUNETEENTH <b>USA</b></span></a>
       <nav aria-label="Main navigation"><a href="#mission">Our mission</a><a href="#program">The program</a><a href="#story">Our story</a><a href="#gallery">Gallery</a></nav>
-      <a class="header-cta" href="mailto:info@missjuneteenthusa.org?subject=Start%20my%20MJUSA%20journey">Get involved <span>↗</span></a>
+      <a class="header-cta" href="mailto:Info@MJUSAnationals.com?subject=Start%20my%20MJUSA%20journey">Get involved <span>↗</span></a>
     </header>
 
     <section class="hero" id="top">
@@ -198,12 +201,12 @@
       </div>
     </section>
 
-    <section class="closing"><img class="closing-logo" src="./public/media/mjusa-logo-transparent.png" alt="Miss Juneteenth USA official logo"><p class="eyebrow">YOUR JOURNEY STARTS HERE</p><h2>Ready to step<br>into your <em>legacy?</em></h2><a class="primary-button dark" href="mailto:info@missjuneteenthusa.org?subject=Start%20my%20MJUSA%20journey">Start your journey <span>↗</span></a></section>
+    <section class="closing"><img class="closing-logo" src="./public/media/mjusa-logo-transparent.png" alt="Miss Juneteenth USA official logo"><p class="eyebrow">YOUR JOURNEY STARTS HERE</p><h2>Ready to step<br>into your <em>legacy?</em></h2><a class="primary-button dark" href="mailto:Info@MJUSAnationals.com?subject=Start%20my%20MJUSA%20journey">Start your journey <span>↗</span></a></section>
 
     <footer class="site-footer">
       <a class="wordmark footer-mark" href="#top"><img class="brand-logo" src="./public/media/mjusa-logo-transparent.png" alt=""><span>MISS JUNETEENTH <b>USA</b></span></a>
       <p>Highlighting &amp; spotlighting African American youth across the nation.</p>
-      <div><a href="mailto:info@missjuneteenthusa.org">info@missjuneteenthusa.org</a><a href="https://www.missjuneteenthusa.org">missjuneteenthusa.org</a></div>
+      <div><a href="mailto:Info@MJUSAnationals.com">Info@MJUSAnationals.com</a><a href="https://www.missjuneteenthusa.org">missjuneteenthusa.org</a></div>
       <small>© 2026 Miss Juneteenth USA. All rights reserved.</small>
     </footer>
   </main>
