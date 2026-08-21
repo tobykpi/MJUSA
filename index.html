@@ -82,7 +82,7 @@
     .media-gallery { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
     .media-card { border-top:1px solid #5d504b; padding-top:14px; }
     .media-card.featured { grid-column:1/-1; }
-    .media-card video { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; background:#090807; }
+    .media-card iframe { display:block; width:100%; aspect-ratio:16/9; border:0; background:#090807; }
     .media-card>div { display:grid; grid-template-columns:28px 1fr auto; align-items:baseline; gap:12px; padding-top:16px; }
     .media-card span { color:var(--gold); font-size:9px; }
     .media-card h3 { font-family:"Cormorant Garamond",serif; font-size:26px; font-weight:500; margin:0; }
@@ -196,8 +196,8 @@
     <section class="gallery" id="gallery">
       <div class="gallery-heading"><div class="section-label light"><span>03</span> Media gallery</div><p class="kicker">Moments in motion.</p><h2>See the <em>journey</em><br>come alive.</h2><p>From the national stage to community moments, experience the energy, sisterhood, and purpose behind Miss Juneteenth USA.</p></div>
       <div class="media-gallery">
-        <article class="media-card featured"><video controls playsinline preload="metadata" poster="./public/media/mjusa-queens.jpg" aria-label="National pageant highlights"><source src="./public/media/mjusa-pageant.m4v" type="video/mp4"></video><div><span>01</span><h3>National Pageant</h3><small>Highlights</small></div></article>
-        <article class="media-card"><video controls playsinline preload="metadata" poster="./public/media/mjusa-logo-transparent.png" aria-label="Juneteenth celebration video"><source src="./public/media/mjusa-june-off.m4v" type="video/mp4"></video><div><span>02</span><h3>Juneteenth</h3><small>The celebration</small></div></article>
+        <article class="media-card featured"><iframe src="https://www.youtube-nocookie.com/embed/awfwAR73MtU" title="Miss Juneteenth USA video feature one" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><div><span>01</span><h3>MJUSA Spotlight</h3><small>Official video</small></div></article>
+        <article class="media-card"><iframe src="https://www.youtube-nocookie.com/embed/pSEQeyp-zi8" title="Miss Juneteenth USA video feature two" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><div><span>02</span><h3>MJUSA in Motion</h3><small>Official video</small></div></article>
       </div>
     </section>
 
