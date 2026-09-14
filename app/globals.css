@@ -89,3 +89,43 @@ body { overflow-x: hidden; }
 @keyframes goldGlow { 0%,100% { opacity:.85; } 50% { opacity:1; text-shadow:0 0 34px rgba(211,173,99,.72); } }
 @keyframes playGlow { 0%,100% { box-shadow:0 8px 30px rgba(0,0,0,.4),0 0 0 0 rgba(255,0,51,.35); } 50% { box-shadow:0 8px 30px rgba(0,0,0,.4),0 0 0 12px rgba(255,0,51,0); } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; }.brand-logo,.hero-image,.hero-copy h1,.hero-copy .eyebrow,.hero-lower,.hero-stamp,.quote-mark { animation:none!important; }.reveal { opacity:1; transform:none; transition:none; }*,*::before,*::after { scroll-behavior:auto!important; transition-duration:.01ms!important; } }
+
+/* Contestant voting */
+.voting { padding:110px 7vw; border-bottom:1px solid #cfc5b6; scroll-margin-top:24px; }
+.voting-heading { display:grid; grid-template-columns:1.2fr 1fr; gap:6vw; align-items:end; margin-bottom:54px; }
+.voting-heading h2 { font-size:clamp(48px,6vw,86px); }
+.voting-heading h2 em { color:var(--red); }
+.voting-intro p { max-width:440px; font-size:15px; line-height:1.75; }
+.voting-status { display:inline-block; padding:9px 14px; background:#e9ddc8; color:var(--wine); font-size:12px; font-weight:700; border-radius:30px; }
+.voting-layout { display:grid; grid-template-columns:1fr 350px; gap:36px; align-items:start; }
+.contestant-fieldset,.package-fieldset { margin:0; padding:0; border:0; min-width:0; }
+.voting legend { font-weight:700; font-size:14px; margin-bottom:20px; }
+.contestant-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+.contestant-card { position:relative; display:flex; flex-direction:column; padding:25px; background:#faf7f1; border:2px solid #ddd2c1; cursor:pointer; }
+.contestant-card.selected { border-color:var(--red); background:#fff; }
+.contestant-card input { position:absolute; right:20px; top:24px; width:18px; height:18px; accent-color:var(--red); }
+.contestant-state { color:var(--red); font-size:11px; text-transform:uppercase; letter-spacing:.12em; padding-right:24px; }
+.contestant-state span { color:#63594f; margin-left:8px; }
+.contestant-identity { display:flex; align-items:center; gap:16px; margin:24px 0 16px; }
+.contestant-crown { position:relative; display:block; flex:0 0 72px; width:72px; aspect-ratio:440 / 305; overflow:hidden; }
+.contestant-crown img { position:absolute; width:324.55%; max-width:none; height:auto; left:-113.64%; top:-22.95%; }
+.contestant-name { min-width:0; font-family:var(--font-display),Georgia,serif; font-size:30px; line-height:1.08; overflow-wrap:break-word; }
+.contestant-title { font-size:12px; line-height:1.6; }
+.contestant-age { font-size:12px; color:#63594f; margin-top:14px; }
+.contestant-card.pending { cursor:default; background:transparent; border-style:dashed; }
+.vote-summary { padding:28px; background:#fffaf2; border-top:4px solid var(--red); }
+.vote-package { display:flex; align-items:center; gap:12px; padding:16px; margin-bottom:12px; border:2px solid #ddd2c1; cursor:pointer; }
+.vote-package.selected { border-color:var(--red); }
+.vote-package input { accent-color:var(--red); width:18px; height:18px; }
+.vote-package strong { margin-left:auto; font-size:24px; }
+.vote-package small { display:block; color:var(--red); font-size:10px; margin-top:4px; text-transform:uppercase; }
+.vote-receipt { margin:24px 0; border-top:1px solid #ddd2c1; padding-top:24px; }
+.vote-receipt > span { font-size:11px; text-transform:uppercase; letter-spacing:.12em; color:#63594f; }
+.vote-receipt h3 { font-family:var(--font-display),Georgia,serif; font-size:28px; margin:12px 0; }
+.vote-receipt p { font-size:12px; }
+.vote-receipt > div { display:flex; justify-content:space-between; margin-top:24px; }
+.vote-checkout { width:100%; padding:17px; border:0; background:#e9ddc8; color:#64584a; font:inherit; font-weight:700; cursor:not-allowed; }
+.voting-note { font-size:12px; line-height:1.65; color:#63594f; }
+.contestant-card:focus-within,.vote-package:focus-within { outline:3px solid var(--gold); outline-offset:3px; }
+@media(max-width:1100px) { .voting-layout { grid-template-columns:1fr 300px; gap:22px; } .contestant-grid { grid-template-columns:1fr; } }
+@media(max-width:700px) { .voting { padding:75px 22px; } .voting-heading,.voting-layout { grid-template-columns:1fr; } .vote-summary { padding:24px; } }

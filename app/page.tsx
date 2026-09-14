@@ -1,5 +1,6 @@
 import Image from "next/image";
 import SiteEffects from "./site-effects";
+import Voting from "./voting";
 
 const divisions = [
   { ages: "Ages 7-10", name: "Little Miss", note: "Confidence begins here." },
@@ -28,6 +29,7 @@ export default function Home() {
           <a href="#program">The program</a>
           <a href="#story">Our story</a>
           <a href="#gallery">Gallery</a>
+          <a href="#vote">Vote</a>
         </nav>
         <a className="header-cta" href="mailto:Info@MJUSAnationals.com?subject=Start%20my%20MJUSA%20journey">Get involved <span>↗</span></a>
       </header>
@@ -116,6 +118,8 @@ export default function Home() {
           </article>
         </div>
       </section>
+
+      <Voting />
 
       <section className="closing">
         <Image className="closing-logo" src="/media/mjusa-logo-transparent.png" alt="Miss Juneteenth USA official logo" width={260} height={190} />
