@@ -26,10 +26,10 @@ export default function Home() {
         </a>
         <nav aria-label="Main navigation">
           <a href="#mission">Our mission</a>
+          <a href="#vote">Vote</a>
           <a href="#program">The program</a>
           <a href="#story">Our story</a>
           <a href="#gallery">Gallery</a>
-          <a href="#vote">Vote</a>
         </nav>
         <a className="header-cta" href="mailto:Info@MJUSAnationals.com?subject=Start%20my%20MJUSA%20journey">Get involved <span>↗</span></a>
       </header>
@@ -47,6 +47,8 @@ export default function Home() {
         </div>
         <div className="hero-stamp" aria-hidden="true"><span>BLACK EXCELLENCE</span><b>1865</b><small>FORWARD</small></div>
       </section>
+
+      <Voting />
 
       <section className="mission" id="mission">
         <div className="mission-aside">
@@ -118,8 +120,6 @@ export default function Home() {
           </article>
         </div>
       </section>
-
-      <Voting />
 
       <section className="closing">
         <Image className="closing-logo" src="/media/mjusa-logo-transparent.png" alt="Miss Juneteenth USA official logo" width={260} height={190} />

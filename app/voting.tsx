@@ -49,10 +49,10 @@ export default function Voting() {
                   <span className="contestant-crown" aria-hidden="true">
                     <Image src="/media/mjusa-logo-transparent.png" alt="" width={1428} height={1100} unoptimized />
                   </span>
-                  <span className="contestant-name">{entry.name ?? "To be announced"}</span>
+                  <span className="contestant-name">{entry.name ?? ""}</span>
                 </span>
                 <span className="contestant-title">{entry.division} Juneteenth {entry.state} USA 2026</span>
-                <span className="contestant-age">{entry.age ? `${entry.age} years old` : "Contestant details coming soon"}</span>
+                <span className="contestant-age">{entry.age ? `${entry.age} years old` : ""}</span>
               </label>
             ))}
           </div>

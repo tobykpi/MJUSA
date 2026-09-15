@@ -164,13 +164,56 @@
     .reveal { opacity:0; transform:translateY(34px) scale(.985); transition:opacity .8s var(--reveal-delay,0ms) cubic-bezier(.2,.75,.25,1),transform .8s var(--reveal-delay,0ms) cubic-bezier(.2,.75,.25,1); }.reveal.is-visible { opacity:1; transform:none; }
     @keyframes heroDrift { from { transform:scale(1.01); } to { transform:scale(1.055) translate3d(-.5%,.4%,0); } } @keyframes titleRise { from { opacity:0; transform:translateY(28px) rotateX(-8deg); } to { opacity:1; transform:none; } } @keyframes crownFloat { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-4px); } } @keyframes stampPulse { 0%,100% { box-shadow:inset 0 0 24px rgba(211,173,99,.16),0 0 24px rgba(211,173,99,.14); } 50% { box-shadow:inset 0 0 32px rgba(211,173,99,.24),0 0 42px rgba(211,173,99,.28); } } @keyframes goldGlow { 0%,100% { opacity:.85; } 50% { opacity:1; text-shadow:0 0 34px rgba(211,173,99,.72); } } @keyframes playGlow { 0%,100% { box-shadow:0 8px 30px rgba(0,0,0,.4),0 0 0 0 rgba(255,0,51,.35); } 50% { box-shadow:0 8px 30px rgba(0,0,0,.4),0 0 0 12px rgba(255,0,51,0); } }
     @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; }.brand-logo,.hero-image,.hero-copy h1,.hero-copy .eyebrow,.hero-lower,.hero-stamp,.quote-mark { animation:none!important; }.reveal { opacity:1; transform:none; transition:none; }*,*::before,*::after { scroll-behavior:auto!important; transition-duration:.01ms!important; } }
-  </style>
+  
+/* Contestant voting */
+.voting { --wine:#681021; --font-display:"Cormorant Garamond"; }
+
+.voting { padding:110px 7vw; border-bottom:1px solid #cfc5b6; scroll-margin-top:24px; }
+.voting-heading { display:grid; grid-template-columns:1.2fr 1fr; gap:6vw; align-items:end; margin-bottom:54px; }
+.voting-heading h2 { font-size:clamp(48px,6vw,86px); }
+.voting-heading h2 em { color:var(--red); }
+.voting-intro p { max-width:440px; font-size:15px; line-height:1.75; }
+.voting-status { display:inline-block; padding:9px 14px; background:#e9ddc8; color:var(--wine); font-size:12px; font-weight:700; border-radius:30px; }
+.voting-layout { display:grid; grid-template-columns:1fr 350px; gap:36px; align-items:start; }
+.contestant-fieldset,.package-fieldset { margin:0; padding:0; border:0; min-width:0; }
+.voting legend { font-weight:700; font-size:14px; margin-bottom:20px; }
+.contestant-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+.contestant-card { position:relative; display:flex; flex-direction:column; padding:25px; background:#faf7f1; border:2px solid #ddd2c1; cursor:pointer; }
+.contestant-card.selected { border-color:var(--red); background:#fff; }
+.contestant-card input { position:absolute; right:20px; top:24px; width:18px; height:18px; accent-color:var(--red); }
+.contestant-state { color:var(--red); font-size:11px; text-transform:uppercase; letter-spacing:.12em; padding-right:24px; }
+.contestant-state span { color:#63594f; margin-left:8px; }
+.contestant-identity { display:flex; align-items:center; gap:16px; margin:24px 0 16px; }
+.contestant-crown { position:relative; display:block; flex:0 0 72px; width:72px; aspect-ratio:440 / 305; overflow:hidden; }
+.contestant-crown img { position:absolute; width:324.55%; max-width:none; height:auto; left:-113.64%; top:-22.95%; }
+.contestant-name { min-width:0; font-family:var(--font-display),Georgia,serif; font-size:30px; line-height:1.08; overflow-wrap:break-word; }
+.contestant-title { font-size:12px; line-height:1.6; }
+.contestant-age { font-size:12px; color:#63594f; margin-top:14px; }
+.contestant-card.pending { cursor:default; background:transparent; border-style:dashed; }
+.vote-summary { padding:28px; background:#fffaf2; border-top:4px solid var(--red); }
+.vote-package { display:flex; align-items:center; gap:12px; padding:16px; margin-bottom:12px; border:2px solid #ddd2c1; cursor:pointer; }
+.vote-package.selected { border-color:var(--red); }
+.vote-package input { accent-color:var(--red); width:18px; height:18px; }
+.vote-package strong { margin-left:auto; font-size:24px; }
+.vote-package small { display:block; color:var(--red); font-size:10px; margin-top:4px; text-transform:uppercase; }
+.vote-receipt { margin:24px 0; border-top:1px solid #ddd2c1; padding-top:24px; }
+.vote-receipt > span { font-size:11px; text-transform:uppercase; letter-spacing:.12em; color:#63594f; }
+.vote-receipt h3 { font-family:var(--font-display),Georgia,serif; font-size:28px; margin:12px 0; }
+.vote-receipt p { font-size:12px; }
+.vote-receipt > div { display:flex; justify-content:space-between; margin-top:24px; }
+.vote-checkout { width:100%; padding:17px; border:0; background:#e9ddc8; color:#64584a; font:inherit; font-weight:700; cursor:not-allowed; }
+.voting-note { font-size:12px; line-height:1.65; color:#63594f; }
+.contestant-card:focus-within,.vote-package:focus-within { outline:3px solid var(--gold); outline-offset:3px; }
+@media(max-width:1100px) { .voting-layout { grid-template-columns:1fr 300px; gap:22px; } .contestant-grid { grid-template-columns:1fr; } }
+@media(max-width:700px) { .voting { padding:75px 22px; } .voting-heading,.voting-layout { grid-template-columns:1fr; } .vote-summary { padding:24px; } }
+
+</style>
 </head>
 <body>
   <main>
     <header class="site-header">
       <a class="wordmark" href="#top" aria-label="Miss Juneteenth USA home"><img class="brand-logo" src="./public/media/mjusa-logo-transparent.png" alt="Miss Juneteenth USA logo"><span>MISS JUNETEENTH <b>USA</b></span></a>
-      <nav aria-label="Main navigation"><a href="#mission">Our mission</a><a href="#program">The program</a><a href="#story">Our story</a><a href="#gallery">Gallery</a></nav>
+      <nav aria-label="Main navigation"><a href="#mission">Our mission</a><a href="#vote">Vote</a><a href="#program">The program</a><a href="#story">Our story</a><a href="#gallery">Gallery</a></nav>
       <a class="header-cta" href="mailto:Info@MJUSAnationals.com?subject=Start%20my%20MJUSA%20journey">Get involved <span>↗</span></a>
     </header>
 
@@ -184,6 +227,56 @@
       </div>
       <div class="hero-stamp" aria-hidden="true"><span>BLACK EXCELLENCE</span><b>1865</b><small>FORWARD</small></div>
     </section>
+
+    <section class="voting" id="vote" aria-labelledby="voting-title">
+<div class="voting-heading"><div><p class="kicker">2026 contestant voting</p><h2 id="voting-title">Celebrate her.<br><em>Champion her.</em></h2></div><div class="voting-intro"><p>Show your support for our Miss Juneteenth USA contestants. Choose a contestant and a vote package below.</p><span class="voting-status">Voting opens soon</span></div></div>
+<div class="voting-layout"><fieldset class="contestant-fieldset"><legend>1. Choose your contestant</legend><div class="contestant-grid"><label class="contestant-card">
+<input type="radio" name="contestant" value="fl-miss" data-name="Jasmen Bogere" data-detail="Miss · Florida" >
+<span class="contestant-state">Florida <span>2026</span></span>
+<span class="contestant-identity"><span class="contestant-crown" aria-hidden="true"><img src="./public/media/mjusa-logo-transparent.png" alt="" width="1433" height="1098"></span><span class="contestant-name">Jasmen Bogere</span></span>
+<span class="contestant-title">Miss Juneteenth Florida USA 2026</span>
+<span class="contestant-age">16 years old</span></label>
+<label class="contestant-card">
+<input type="radio" name="contestant" value="de-miss" data-name="Lihlo Hollins" data-detail="Miss · Delaware" >
+<span class="contestant-state">Delaware <span>2026</span></span>
+<span class="contestant-identity"><span class="contestant-crown" aria-hidden="true"><img src="./public/media/mjusa-logo-transparent.png" alt="" width="1433" height="1098"></span><span class="contestant-name">Lihlo Hollins</span></span>
+<span class="contestant-title">Miss Juneteenth Delaware USA 2026</span>
+<span class="contestant-age">16 years old</span></label>
+<label class="contestant-card">
+<input type="radio" name="contestant" value="fl-junior" data-name="Syerra Thigpen" data-detail="Jr. Miss · Florida" >
+<span class="contestant-state">Florida <span>2026</span></span>
+<span class="contestant-identity"><span class="contestant-crown" aria-hidden="true"><img src="./public/media/mjusa-logo-transparent.png" alt="" width="1433" height="1098"></span><span class="contestant-name">Syerra Thigpen</span></span>
+<span class="contestant-title">Jr. Miss Juneteenth Florida USA 2026</span>
+<span class="contestant-age">11 years old</span></label>
+<label class="contestant-card">
+<input type="radio" name="contestant" value="fl-little" data-name="Teylyn Prater-Fulliere" data-detail="Little Miss · Florida" >
+<span class="contestant-state">Florida <span>2026</span></span>
+<span class="contestant-identity"><span class="contestant-crown" aria-hidden="true"><img src="./public/media/mjusa-logo-transparent.png" alt="" width="1433" height="1098"></span><span class="contestant-name">Teylyn Prater-Fulliere</span></span>
+<span class="contestant-title">Little Miss Juneteenth Florida USA 2026</span>
+<span class="contestant-age">9 years old</span></label>
+<label class="contestant-card pending">
+<input type="radio" name="contestant" value="il-miss" data-name="" data-detail="Miss · Illinois" disabled>
+<span class="contestant-state">Illinois <span>2026</span></span>
+<span class="contestant-identity"><span class="contestant-crown" aria-hidden="true"><img src="./public/media/mjusa-logo-transparent.png" alt="" width="1433" height="1098"></span><span class="contestant-name"></span></span>
+<span class="contestant-title">Miss Juneteenth Illinois USA 2026</span>
+<span class="contestant-age"></span></label>
+<label class="contestant-card pending">
+<input type="radio" name="contestant" value="il-little" data-name="" data-detail="Little Miss · Illinois" disabled>
+<span class="contestant-state">Illinois <span>2026</span></span>
+<span class="contestant-identity"><span class="contestant-crown" aria-hidden="true"><img src="./public/media/mjusa-logo-transparent.png" alt="" width="1433" height="1098"></span><span class="contestant-name"></span></span>
+<span class="contestant-title">Little Miss Juneteenth Illinois USA 2026</span>
+<span class="contestant-age"></span></label>
+<label class="contestant-card pending">
+<input type="radio" name="contestant" value="il-junior" data-name="" data-detail="Jr. Miss · Illinois" disabled>
+<span class="contestant-state">Illinois <span>2026</span></span>
+<span class="contestant-identity"><span class="contestant-crown" aria-hidden="true"><img src="./public/media/mjusa-logo-transparent.png" alt="" width="1433" height="1098"></span><span class="contestant-name"></span></span>
+<span class="contestant-title">Jr. Miss Juneteenth Illinois USA 2026</span>
+<span class="contestant-age"></span></label></div></fieldset>
+<div class="vote-summary"><fieldset class="package-fieldset"><legend>2. Choose your vote package</legend>
+<label class="vote-package selected"><input type="radio" name="vote-package" value="1" data-price="5" checked><span>1 vote</span><strong>$5</strong></label>
+<label class="vote-package"><input type="radio" name="vote-package" value="3" data-price="10"><span>3 votes<small>Best value</small></span><strong>$10</strong></label></fieldset>
+<div class="vote-receipt" aria-live="polite" aria-atomic="true"><span>Your selection</span><h3 id="vote-name">Choose a contestant</h3><p id="vote-detail" hidden></p><div><span id="vote-count">1 vote</span><strong id="vote-total">$5.00</strong></div></div>
+<button class="vote-checkout" type="button" disabled aria-describedby="voting-availability">Voting opens soon</button><p class="voting-note" id="voting-availability">Payments are not available yet. Selecting a contestant does not cast a vote. When voting opens, votes will count only after payment is confirmed.</p></div></div></section>
 
     <section class="mission" id="mission">
       <div class="mission-aside"><div class="section-label"><span>01</span> Our mission</div><img class="mission-logo" src="./public/media/mjusa-logo-transparent.png" alt="Miss Juneteenth USA official logo"></div>
@@ -219,6 +312,7 @@
       </div>
     </section>
 
+    
     <section class="closing"><img class="closing-logo" src="./public/media/mjusa-logo-transparent.png" alt="Miss Juneteenth USA official logo"><p class="eyebrow">YOUR JOURNEY STARTS HERE</p><h2>Ready to step<br>into your <em>legacy?</em></h2><a class="primary-button dark" href="mailto:Info@MJUSAnationals.com?subject=Start%20my%20MJUSA%20journey">Start your journey <span>↗</span></a></section>
 
     <footer class="site-footer">
@@ -234,5 +328,23 @@
     const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>entry.isIntersecting&&entry.target.classList.add('is-visible')),{threshold:.12,rootMargin:'0px 0px -45px'});
     revealTargets.forEach(element=>revealObserver.observe(element));
   </script>
+<script>
+document.querySelector('#vote').addEventListener('change', (event) => {
+  const input = event.target;
+  if (!(input instanceof HTMLInputElement)) return;
+  if (input.name === 'contestant') {
+    document.querySelectorAll('.contestant-card').forEach(card => card.classList.toggle('selected', card.contains(input)));
+    document.querySelector('#vote-name').textContent = input.dataset.name;
+    document.querySelector('#vote-detail').textContent = input.dataset.detail;
+    document.querySelector('#vote-detail').hidden = false;
+  } else if (input.name === 'vote-package') {
+    document.querySelectorAll('.vote-package').forEach(card => card.classList.toggle('selected', card.contains(input)));
+    document.querySelector('#vote-count').textContent = input.value + (input.value === '1' ? ' vote' : ' votes');
+    document.querySelector('#vote-total').textContent = '
+</html>
+ + input.dataset.price + '.00';
+  }
+});
+</script>
 </body>
 </html>
