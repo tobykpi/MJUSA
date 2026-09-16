@@ -207,6 +207,8 @@
 @media(max-width:1100px) { .voting-layout { grid-template-columns:1fr 300px; gap:22px; } .contestant-grid { grid-template-columns:1fr; } }
 @media(max-width:700px) { .voting { padding:75px 22px; } .voting-heading,.voting-layout { grid-template-columns:1fr; } .vote-summary { padding:24px; } }
 
+.vote-checkout:not(:disabled) { background:var(--red); color:white; cursor:pointer; } .vote-checkout:focus-visible { outline:3px solid var(--gold); outline-offset:3px; }
+.payment-confirmation { padding:20px 24px; margin-bottom:30px; border:2px solid var(--red); background:#fffaf2; color:var(--ink); font-size:17px; line-height:1.5; }
 </style>
 </head>
 <body>
@@ -328,23 +330,6 @@
     const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>entry.isIntersecting&&entry.target.classList.add('is-visible')),{threshold:.12,rootMargin:'0px 0px -45px'});
     revealTargets.forEach(element=>revealObserver.observe(element));
   </script>
-<script>
-document.querySelector('#vote').addEventListener('change', (event) => {
-  const input = event.target;
-  if (!(input instanceof HTMLInputElement)) return;
-  if (input.name === 'contestant') {
-    document.querySelectorAll('.contestant-card').forEach(card => card.classList.toggle('selected', card.contains(input)));
-    document.querySelector('#vote-name').textContent = input.dataset.name;
-    document.querySelector('#vote-detail').textContent = input.dataset.detail;
-    document.querySelector('#vote-detail').hidden = false;
-  } else if (input.name === 'vote-package') {
-    document.querySelectorAll('.vote-package').forEach(card => card.classList.toggle('selected', card.contains(input)));
-    document.querySelector('#vote-count').textContent = input.value + (input.value === '1' ? ' vote' : ' votes');
-    document.querySelector('#vote-total').textContent = '
-</html>
- + input.dataset.price + '.00';
-  }
-});
-</script>
+<script src="./public/voting-payments.js" defer></script>
 </body>
 </html>
