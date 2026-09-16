@@ -209,6 +209,27 @@
 
 .vote-checkout:not(:disabled) { background:var(--red); color:white; cursor:pointer; } .vote-checkout:focus-visible { outline:3px solid var(--gold); outline-offset:3px; }
 .payment-confirmation { padding:20px 24px; margin-bottom:30px; border:2px solid var(--red); background:#fffaf2; color:var(--ink); font-size:17px; line-height:1.5; }
+
+.contact-section { padding:88px 7vw; background:radial-gradient(ellipse at top right,rgba(211,173,99,.09),transparent 60%),#681021; color:#fffaf2; scroll-margin-top:90px; }
+.contact-inner { max-width:1120px; margin:auto; display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:70px; border-top:1px solid rgba(211,173,99,.4); padding-top:48px; }
+.contact-section .kicker { color:#d3ad63; margin-bottom:20px; }
+.contact-section h2 { font-size:clamp(48px,5.5vw,72px); margin:0 0 22px; }
+.contact-copy { max-width:410px; font-size:15px; line-height:1.8; color:#ead9db; margin:0; }
+.contact-card { padding:32px; border:1px solid rgba(211,173,99,.35); background:rgba(255,250,242,.045); border-radius:4px; }
+.contact-card-label { display:block; color:#d3ad63; font-size:11px; letter-spacing:.18em; text-transform:uppercase; margin-bottom:16px; }
+.contact-email { display:flex; align-items:center; justify-content:space-between; gap:16px; color:#fffaf2; font-size:clamp(16px,1.65vw,22px); text-decoration:none; overflow-wrap:anywhere; }
+.contact-email span:first-child { min-width:0; }
+.contact-email-arrow { color:#d3ad63; font-size:24px; transition:transform .2s; }
+.contact-email:hover { text-decoration:underline; text-underline-offset:5px; }
+.contact-email:hover .contact-email-arrow { transform:translate(3px,-3px); }
+.contact-email:focus-visible { outline:2px solid #d3ad63; outline-offset:8px; }
+.header-cta[href="#contact"] span { display:inline-block; }
+@media(max-width:700px) { .contact-inner { grid-template-columns:1fr; gap:30px; padding-top:32px; } .contact-card { padding:24px 20px; } }
+.division { grid-template-columns:1fr 1fr 30px; }
+.media-card>div { grid-template-columns:1fr auto; }
+.pillar h3 { margin-top:12px; }
+@media(max-width:600px) { .contact-section { padding:75px 22px; } .division { grid-template-columns:1fr 25px; } .media-card>div { grid-template-columns:1fr; } }
+
 </style>
 </head>
 <body>
@@ -216,7 +237,7 @@
     <header class="site-header">
       <a class="wordmark" href="#top" aria-label="Miss Juneteenth USA home"><img class="brand-logo" src="./public/media/mjusa-logo-transparent.png" alt="Miss Juneteenth USA logo"><span>MISS JUNETEENTH <b>USA</b></span></a>
       <nav aria-label="Main navigation"><a href="#mission">Our mission</a><a href="#vote">Vote</a><a href="#program">The program</a><a href="#story">Our story</a><a href="#gallery">Gallery</a></nav>
-      <a class="header-cta" href="mailto:Info@MJUSAnationals.com?subject=Start%20my%20MJUSA%20journey">Get involved <span>↗</span></a>
+      <a class="header-cta" href="#contact">Get involved <span aria-hidden="true">↓</span></a>
     </header>
 
     <section class="hero" id="top">
@@ -281,23 +302,23 @@
 <button class="vote-checkout" type="button" disabled aria-describedby="voting-availability">Voting opens soon</button><p class="voting-note" id="voting-availability">Payments are not available yet. Selecting a contestant does not cast a vote. When voting opens, votes will count only after payment is confirmed.</p></div></div></section>
 
     <section class="mission" id="mission">
-      <div class="mission-aside"><div class="section-label"><span>01</span> Our mission</div><img class="mission-logo" src="./public/media/mjusa-logo-transparent.png" alt="Miss Juneteenth USA official logo"></div>
+      <div class="mission-aside"><img class="mission-logo" src="./public/media/mjusa-logo-transparent.png" alt="Miss Juneteenth USA official logo"></div>
       <div class="mission-copy"><p class="kicker">More than a pageant.</p><h2>A platform for <em>bold</em>, brilliant &amp; beautiful young women.</h2><div class="mission-detail"><p>Miss Juneteenth USA spotlights African American youth from across the country—nurturing confidence, leadership, cultural pride, and a lifelong commitment to service.</p><p>Our queens are ambassadors of Juneteenth: prepared to speak with purpose, lead with grace, and create change in the communities they call home.</p></div></div>
     </section>
 
     <section class="pillars" aria-label="Program values">
-      <article class="pillar"><span>01</span><h3>Culture</h3><p>Honoring Juneteenth history and the generations whose courage made freedom possible.</p></article>
-      <article class="pillar"><span>02</span><h3>Scholarship</h3><p>Championing young women who pursue academic excellence with focus and imagination.</p></article>
-      <article class="pillar"><span>03</span><h3>Service</h3><p>Turning platforms into action through meaningful work in local communities.</p></article>
-      <article class="pillar"><span>04</span><h3>Sisterhood</h3><p>Creating a national network where young women are seen, celebrated, and supported.</p></article>
+      <article class="pillar"><h3>Culture</h3><p>Honoring Juneteenth history and the generations whose courage made freedom possible.</p></article>
+      <article class="pillar"><h3>Scholarship</h3><p>Championing young women who pursue academic excellence with focus and imagination.</p></article>
+      <article class="pillar"><h3>Service</h3><p>Turning platforms into action through meaningful work in local communities.</p></article>
+      <article class="pillar"><h3>Sisterhood</h3><p>Creating a national network where young women are seen, celebrated, and supported.</p></article>
     </section>
 
     <section class="program" id="program">
-      <div class="program-intro"><div class="section-label light"><span>02</span> The program</div><p class="kicker">A journey with purpose.</p><h2>Three divisions.<br>One powerful legacy.</h2><p>Contestants grow through interview, talent, stage presence, cultural learning, community service, and the development of a personal platform.</p></div>
+      <div class="program-intro"><div class="section-label light"> The program</div><p class="kicker">A journey with purpose.</p><h2>Three divisions.<br>One powerful legacy.</h2><p>Contestants grow through interview, talent, stage presence, cultural learning, community service, and the development of a personal platform.</p></div>
       <div class="division-list">
-        <article class="division"><span class="division-number">01</span><div><small>Ages 7-10</small><h3>Little Miss</h3></div><p>Confidence begins here.</p><span class="arrow">↗</span></article>
-        <article class="division"><span class="division-number">02</span><div><small>Ages 11-14</small><h3>Junior Miss</h3></div><p>Purpose takes the stage.</p><span class="arrow">↗</span></article>
-        <article class="division"><span class="division-number">03</span><div><small>Ages 15-18</small><h3>Miss</h3></div><p>Leadership wears the crown.</p><span class="arrow">↗</span></article>
+        <article class="division"><div><small>Ages 7-10</small><h3>Little Miss</h3></div><p>Confidence begins here.</p><span class="arrow">↗</span></article>
+        <article class="division"><div><small>Ages 11-14</small><h3>Junior Miss</h3></div><p>Purpose takes the stage.</p><span class="arrow">↗</span></article>
+        <article class="division"><div><small>Ages 15-18</small><h3>Miss</h3></div><p>Leadership wears the crown.</p><span class="arrow">↗</span></article>
       </div>
     </section>
 
@@ -307,17 +328,18 @@
     </section>
 
     <section class="gallery" id="gallery">
-      <div class="gallery-heading"><div class="section-label light"><span>03</span> Media gallery</div><p class="kicker">Moments in motion.</p><h2>See the <em>journey</em><br>come alive.</h2><p>From the national stage to community moments, experience the energy, sisterhood, and purpose behind Miss Juneteenth USA.</p></div>
+      <div class="gallery-heading"><div class="section-label light"> Media gallery</div><p class="kicker">Moments in motion.</p><h2>See the <em>journey</em><br>come alive.</h2><p>From the national stage to community moments, experience the energy, sisterhood, and purpose behind Miss Juneteenth USA.</p></div>
       <div class="media-gallery">
-        <article class="media-card featured"><iframe src="https://www.youtube-nocookie.com/embed/awfwAR73MtU" title="Miss Juneteenth USA video feature one" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><div><span>01</span><h3>MJUSA Spotlight</h3><small>Official video</small></div></article>
-        <article class="media-card"><video controls playsinline preload="metadata" poster="https://i.ytimg.com/vi/pSEQeyp-zi8/hqdefault.jpg" aria-label="Miss Juneteenth USA video feature two"><source src="./public/media/mjusa-june-off.m4v" type="video/mp4"></video><div><span>02</span><h3>MJUSA in Motion</h3><small>Official video</small></div></article>
+        <article class="media-card featured"><iframe src="https://www.youtube-nocookie.com/embed/awfwAR73MtU" title="Miss Juneteenth USA video feature one" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><div><h3>MJUSA Spotlight</h3><small>Official video</small></div></article>
+        <article class="media-card"><video controls playsinline preload="metadata" poster="https://i.ytimg.com/vi/pSEQeyp-zi8/hqdefault.jpg" aria-label="Miss Juneteenth USA video feature two"><source src="./public/media/mjusa-june-off.m4v" type="video/mp4"></video><div><h3>MJUSA in Motion</h3><small>Official video</small></div></article>
       </div>
     </section>
 
     
-    <section class="closing"><img class="closing-logo" src="./public/media/mjusa-logo-transparent.png" alt="Miss Juneteenth USA official logo"><p class="eyebrow">YOUR JOURNEY STARTS HERE</p><h2>Ready to step<br>into your <em>legacy?</em></h2><a class="primary-button dark" href="mailto:Info@MJUSAnationals.com?subject=Start%20my%20MJUSA%20journey">Start your journey <span>↗</span></a></section>
+    <section class="closing"><img class="closing-logo" src="./public/media/mjusa-logo-transparent.png" alt="Miss Juneteenth USA official logo"><p class="eyebrow">YOUR JOURNEY STARTS HERE</p><h2>Ready to step<br>into your <em>legacy?</em></h2></section>
 
-    <footer class="site-footer">
+    <section class="contact-section" id="contact" aria-labelledby="contact-title"><div class="contact-inner"><div><p class="kicker">Get involved</p><h2 id="contact-title">Contact us</h2><p class="contact-copy">Have a question about participation or partnerships? We’d love to hear from you.</p></div><div class="contact-card"><span class="contact-card-label">Email MJUSA Nationals</span><a class="contact-email" href="mailto:Info@MJUSAnationals.com"><span>Info@MJUSAnationals.com</span><span class="contact-email-arrow" aria-hidden="true">↗</span></a></div></div></section>
+<footer class="site-footer">
       <a class="wordmark footer-mark" href="#top"><img class="brand-logo" src="./public/media/mjusa-logo-transparent.png" alt=""><span>MISS JUNETEENTH <b>USA</b></span></a>
       <p>Highlighting &amp; spotlighting African American youth across the nation.</p>
       <div><a href="mailto:Info@MJUSAnationals.com">Info@MJUSAnationals.com</a></div>
