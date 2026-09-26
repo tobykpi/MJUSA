@@ -254,6 +254,32 @@
 }
 @media(max-width:500px) { .hero { padding-top:230px; } .hero-copy { padding:22px; } .hero-copy h1 { font-size:32px; } .hero-lower p { font-size:15px; } }
 
+
+.contestant-profile { display:flex; flex-direction:column; border:2px solid #ddd2c1; background:#faf7f1; }
+.contestant-profile .contestant-card { border:0; flex:1; }
+.contestant-profile:has(.selected) { border-color:var(--red); }
+.contestant-portrait { display:block; width:100%; height:280px; object-fit:contain; background:#f7f7f7; margin:18px 0; }
+.bio-button { margin:0 25px 25px; display:flex; align-items:center; justify-content:space-between; gap:20px; padding:14px 18px; border:1px solid #a9152b; background:#a9152b; color:white; font:600 12px Inter,Arial,sans-serif; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; transition:transform .2s,box-shadow .2s,background .2s; }
+.bio-button span { font-size:21px; transition:transform .2s; }
+.bio-button:hover { background:#681021; transform:translateY(-3px); box-shadow:0 7px 18px #68102125; }
+.bio-button:hover span { transform:translate(3px,-3px); }
+.bio-button:focus-visible,.bio-close:focus-visible { outline:3px solid #d3ad63; outline-offset:4px; }
+.bio-open { overflow:hidden; }
+.bio-dialog { border:1px solid #d3ad63; padding:0; width:min(960px,calc(100% - 32px)); max-height:calc(100dvh - 48px); color:#241a18; background:#fffaf2; border-radius:12px; overflow:auto; box-shadow:0 24px 100px #0006; }
+.bio-dialog[open] { animation:bioEnter .25s ease-out; }
+.bio-dialog::backdrop { background:rgba(26,13,17,.58); backdrop-filter:blur(9px); -webkit-backdrop-filter:blur(9px); }
+.bio-layout { display:grid; grid-template-columns: .85fr 1.15fr; }
+.bio-portrait { display:block; width:100%; height:auto; align-self:start; }
+.bio-content { padding:48px 36px 32px; }
+.bio-content h2 { font-size:clamp(32px,4vw,48px); line-height:1.05; margin:0 0 24px; }
+.bio-content .kicker { font-size:10px; margin-bottom:14px; }
+.bio-story p { font-size:14px; line-height:1.85; margin:0 0 18px; }
+.bio-close { position:sticky; display:block; top:12px; margin:12px 12px -52px auto; z-index:2; width:40px; height:40px; border:1px solid #d3ad63; border-radius:50%; background:#fffaf2; color:#681021; font-size:28px; cursor:pointer; }
+@keyframes bioEnter { from { opacity:0; transform:translateY(14px) scale(.98); } to { opacity:1; transform:none; } }
+@media(max-width:650px) { .bio-layout { grid-template-columns:1fr; } .bio-portrait { height:320px; object-fit:contain; background:#f7f7f7; } .bio-content { padding:28px 24px; } }
+@media(prefers-reduced-motion:reduce) { .bio-dialog[open] { animation:none; } .bio-button,.bio-button span { transition:none; } }
+
+.bio-layout.bio-layout-text { grid-template-columns:1fr; max-width:760px; margin:auto; }
 </style>
 </head>
 <body>
@@ -354,6 +380,8 @@
     <section class="gallery" id="gallery">
       <div class="gallery-heading"><div class="section-label light"> Media gallery</div><p class="kicker">Moments in motion.</p><h2>See the <em>journey</em><br>come alive.</h2><p>From the national stage to community moments, experience the energy, sisterhood, and purpose behind Miss Juneteenth USA.</p></div>
       <div class="media-gallery">
+<article class="media-card"><video controls playsinline preload="none" aria-label="Miss Juneteenth USA Nationals wrap-up video"><source src="./public/media/mjusa-nationals-wrap-web.mp4" type="video/mp4">Your browser does not support this video.</video><div><h3>MJUSA Nationals Wrap-Up</h3><small>Official video</small></div></article>
+
         <article class="media-card featured"><iframe src="https://www.youtube-nocookie.com/embed/awfwAR73MtU" title="Miss Juneteenth USA video feature one" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><div><h3>MJUSA Spotlight</h3><small>Official video</small></div></article>
         <article class="media-card"><video controls playsinline preload="metadata" poster="https://i.ytimg.com/vi/pSEQeyp-zi8/hqdefault.jpg" aria-label="Miss Juneteenth USA video feature two"><source src="./public/media/mjusa-june-off.m4v" type="video/mp4"></video><div><h3>MJUSA in Motion</h3><small>Official video</small></div></article>
       </div>
@@ -377,5 +405,6 @@
     revealTargets.forEach(element=>revealObserver.observe(element));
   </script>
 <script src="./public/voting-payments.js" defer></script>
+<script src="./public/contestant-bios.js" defer></script>
 </body>
 </html>
