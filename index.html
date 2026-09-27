@@ -203,7 +203,8 @@
 .vote-receipt > div { display:flex; justify-content:space-between; margin-top:24px; }
 .vote-checkout { width:100%; padding:17px; border:0; background:#e9ddc8; color:#64584a; font:inherit; font-weight:700; cursor:not-allowed; }
 .voting-note { font-size:12px; line-height:1.65; color:#63594f; }
-.contestant-card:focus-within,.vote-package:focus-within { outline:3px solid var(--gold); outline-offset:3px; }
+.contestant-grid > .contestant-card:has(input:focus-visible),.contestant-profile:has(input:focus-visible),.vote-package:has(input:focus-visible) { outline:3px solid var(--gold); outline-offset:3px; }
+.contestant-card input:focus:not(:focus-visible),.vote-package input:focus:not(:focus-visible) { outline:none; }
 @media(max-width:1100px) { .voting-layout { grid-template-columns:1fr 300px; gap:22px; } .contestant-grid { grid-template-columns:1fr; } }
 @media(max-width:700px) { .voting { padding:75px 22px; } .voting-heading,.voting-layout { grid-template-columns:1fr; } .vote-summary { padding:24px; } }
 
@@ -280,6 +281,26 @@
 @media(prefers-reduced-motion:reduce) { .bio-dialog[open] { animation:none; } .bio-button,.bio-button span { transition:none; } }
 
 .bio-layout.bio-layout-text { grid-template-columns:1fr; max-width:760px; margin:auto; }
+
+/* A single light sweep on voting options; never intercepts selection. */
+.contestant-card,.vote-package { position:relative; isolation:isolate; overflow:hidden; }
+.contestant-card::after,.vote-package::after { content:""; position:absolute; inset:0; z-index:2; pointer-events:none; background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.12) 38%,rgba(255,255,255,.58) 49%,rgba(232,202,145,.20) 55%,transparent 70%); transform:translateX(-130%); }
+@keyframes voteShine { from { transform:translateX(-130%); } to { transform:translateX(130%); } }
+@media(hover:hover) and (prefers-reduced-motion:no-preference) {
+ .contestant-card:hover::after,.vote-package:hover::after { animation:voteShine .85s cubic-bezier(.22,.61,.36,1) both; }
+}
+@media(prefers-reduced-motion:no-preference) {
+ .contestant-card:has(input:focus-visible)::after,.vote-package:has(input:focus-visible)::after { animation:voteShine .85s cubic-bezier(.22,.61,.36,1) both; }
+}
+
+/* Gentle lift pairs with the voting shine without moving surrounding content. */
+@media(prefers-reduced-motion:no-preference) {
+ .contestant-profile,.contestant-grid > .contestant-card,.vote-package { transition:transform .24s cubic-bezier(.2,.8,.2,1),box-shadow .24s ease; transform-origin:center; }
+ .contestant-profile:has(:focus-visible),.contestant-grid > .contestant-card:has(input:focus-visible),.vote-package:has(input:focus-visible) { transform:translateY(-5px) scale(1.015); box-shadow:0 14px 30px rgba(104,16,33,.13); }
+}
+@media(hover:hover) and (prefers-reduced-motion:no-preference) {
+ .contestant-profile:hover,.contestant-grid > .contestant-card:hover,.vote-package:hover { transform:translateY(-5px) scale(1.015); box-shadow:0 14px 30px rgba(104,16,33,.13); }
+}
 </style>
 </head>
 <body>
