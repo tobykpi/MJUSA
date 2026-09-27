@@ -127,7 +127,13 @@ const button = document.createElement('button');
   const profile = document.createElement('div');
   profile.className = 'contestant-profile';
   card.before(profile); profile.append(card);
-const button = document.createElement('button');
+  const photo = document.createElement('img');
+  photo.src = './public/media/lihlo-flower-hollins.jpg';
+  photo.alt = 'Lihlo Flower Hollins, Miss Juneteenth Delaware USA';
+  photo.className = 'contestant-portrait'; photo.loading = 'lazy';
+  photo.width = 1080; photo.height = 1587;
+  card.querySelector('.contestant-identity').before(photo);
+  const button = document.createElement('button');
   button.type = 'button'; button.className = 'bio-button';
   button.innerHTML = 'Read bio <span aria-hidden="true">↗</span>';
   button.setAttribute('aria-label', 'Read Lihlo Flower Hollins’s biography');
@@ -137,7 +143,7 @@ const button = document.createElement('button');
   const dialog = document.createElement('dialog');
   dialog.id = 'lihlo-bio'; dialog.className = 'bio-dialog';
   dialog.setAttribute('aria-labelledby', 'lihlo-bio-title');
-  dialog.innerHTML = `<button type="button" class="bio-close" aria-label="Close biography" autofocus>×</button><div class="bio-layout bio-layout-text"><div class="bio-content"><p class="kicker">Miss Juneteenth Delaware USA</p><h2 id="lihlo-bio-title">Lihlo Flower Hollins</h2><div class="bio-story"></div></div></div>`;
+  dialog.innerHTML = `<button type="button" class="bio-close" aria-label="Close biography" autofocus>×</button><div class="bio-layout"><img class="bio-portrait" src="./public/media/lihlo-flower-hollins.jpg" alt="Lihlo Flower Hollins wearing her crown and Miss Juneteenth Delaware sash" width="1080" height="1587"><div class="bio-content"><p class="kicker">Miss Juneteenth Delaware USA</p><h2 id="lihlo-bio-title">Lihlo Flower Hollins</h2><div class="bio-story"></div></div></div>`;
   const paragraphs = [
   "Lihlo Flower Hollins is her ancestors dream, her elders wisdom and a leader amongst her generation. This 16 year old award winning artist and community advocate was born in Philadelphia and has been residing in Delaware since 2015, implementing her purpose of heart in the arts wherever she goes.",
   "Lihlo is a homeschool student that takes the initiative to infuse her academic studies with learning about her roots and African American culture. She has an extraordinary girth for learning. Beholding a bloodline coded with creatives and self-starters, she strives to carry on her legacy.",
@@ -155,3 +161,33 @@ const button = document.createElement('button');
   dialog.addEventListener('close', () => { document.documentElement.classList.remove('bio-open'); button.focus({preventScroll:true}); });
 })();
 
+
+(() => {
+  const input = document.querySelector('#vote input[value="il-junior"]');
+  if (!input) return;
+  const card = input.closest('.contestant-card');
+  const profile = document.createElement('div');
+  profile.className = 'contestant-profile';
+  card.before(profile); profile.append(card);
+  const button = document.createElement('button');
+  button.type = 'button'; button.className = 'bio-button';
+  button.innerHTML = 'Read bio <span aria-hidden="true">↗</span>';
+  button.setAttribute('aria-label', 'Read Emoni Taylor’s biography');
+  button.setAttribute('aria-haspopup', 'dialog');
+  button.setAttribute('aria-controls', 'emoni-bio');
+  profile.append(button);
+  const dialog = document.createElement('dialog');
+  dialog.id = 'emoni-bio'; dialog.className = 'bio-dialog';
+  dialog.setAttribute('aria-labelledby', 'emoni-bio-title');
+  dialog.innerHTML = `<button type="button" class="bio-close" aria-label="Close biography" autofocus>×</button><div class="bio-layout bio-layout-text"><div class="bio-content"><p class="kicker">Jr. Miss Juneteenth Illinois USA</p><h2 id="emoni-bio-title">Emoni Taylor</h2><div class="bio-story"></div></div></div>`;
+  const paragraphs = ["Hello, my name is Emoni Taylor. I was born on October 29, 2012. I’m a Scorpio. I am a confident and driven young woman, who knows exactly what she wants, and isn’t afraid to go after it. I balance my academics and athletics all while staying focused, disciplined, and goal-oriented. As a dedicated team athlete, I bring speed, strength, and determination to every competition. I have big dreams of building a career in Veterinary Medicine. I’m ready to lead and stand out in all aspects of my life."];
+  for (const text of paragraphs) { const p = document.createElement('p'); p.textContent = text; dialog.querySelector('.bio-story').append(p); }
+  document.body.append(dialog);
+  button.addEventListener('click', () => { dialog.showModal(); document.documentElement.classList.add('bio-open'); });
+  dialog.querySelector('.bio-close').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', event => {
+    const rect = dialog.getBoundingClientRect();
+    if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) dialog.close();
+  });
+  dialog.addEventListener('close', () => { document.documentElement.classList.remove('bio-open'); button.focus({preventScroll:true}); });
+})();

@@ -258,7 +258,7 @@
 .contestant-profile { display:flex; flex-direction:column; border:2px solid #ddd2c1; background:#faf7f1; }
 .contestant-profile .contestant-card { border:0; flex:1; }
 .contestant-profile:has(.selected) { border-color:var(--red); }
-.contestant-portrait { display:block; width:100%; height:280px; object-fit:contain; background:#f7f7f7; margin:18px 0; }
+.contestant-portrait { display:block; width:auto; max-width:100%; height:280px; box-sizing:border-box; object-fit:contain; background:#fff; border:14px solid #fff; margin:22px auto; box-shadow:0 8px 24px rgba(45,27,23,.14),0 1px 5px rgba(45,27,23,.07); }
 .bio-button { margin:0 25px 25px; display:flex; align-items:center; justify-content:space-between; gap:20px; padding:14px 18px; border:1px solid #a9152b; background:#a9152b; color:white; font:600 12px Inter,Arial,sans-serif; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; transition:transform .2s,box-shadow .2s,background .2s; }
 .bio-button span { font-size:21px; transition:transform .2s; }
 .bio-button:hover { background:#681021; transform:translateY(-3px); box-shadow:0 7px 18px #68102125; }
@@ -269,14 +269,14 @@
 .bio-dialog[open] { animation:bioEnter .25s ease-out; }
 .bio-dialog::backdrop { background:rgba(26,13,17,.58); backdrop-filter:blur(9px); -webkit-backdrop-filter:blur(9px); }
 .bio-layout { display:grid; grid-template-columns: .85fr 1.15fr; }
-.bio-portrait { display:block; width:100%; height:auto; align-self:start; }
+.bio-portrait { display:block; width:calc(100% - 48px); height:auto; box-sizing:border-box; align-self:start; margin:28px 24px; border:14px solid #fff; background:#fff; box-shadow:0 8px 24px rgba(45,27,23,.14),0 1px 5px rgba(45,27,23,.07); }
 .bio-content { padding:48px 36px 32px; }
 .bio-content h2 { font-size:clamp(32px,4vw,48px); line-height:1.05; margin:0 0 24px; }
 .bio-content .kicker { font-size:10px; margin-bottom:14px; }
 .bio-story p { font-size:14px; line-height:1.85; margin:0 0 18px; }
 .bio-close { position:sticky; display:block; top:12px; margin:12px 12px -52px auto; z-index:2; width:40px; height:40px; border:1px solid #d3ad63; border-radius:50%; background:#fffaf2; color:#681021; font-size:28px; cursor:pointer; }
 @keyframes bioEnter { from { opacity:0; transform:translateY(14px) scale(.98); } to { opacity:1; transform:none; } }
-@media(max-width:650px) { .bio-layout { grid-template-columns:1fr; } .bio-portrait { height:320px; object-fit:contain; background:#f7f7f7; } .bio-content { padding:28px 24px; } }
+@media(max-width:650px) { .bio-layout { grid-template-columns:1fr; } .bio-portrait { width:auto; max-width:calc(100% - 48px); height:320px; object-fit:contain; margin:28px auto 0; } .bio-content { padding:28px 24px; } }
 @media(prefers-reduced-motion:reduce) { .bio-dialog[open] { animation:none; } .bio-button,.bio-button span { transition:none; } }
 
 .bio-layout.bio-layout-text { grid-template-columns:1fr; max-width:760px; margin:auto; }
@@ -304,6 +304,12 @@
     <section class="voting" id="vote" aria-labelledby="voting-title">
 <div class="voting-heading"><div><p class="kicker">2026 contestant voting</p><h2 id="voting-title">Celebrate her.<br><em>Champion her.</em></h2></div><div class="voting-intro"><p>Show your support for our Miss Juneteenth USA contestants. Choose a contestant and a vote package below.</p><span class="voting-status">Voting opens soon</span></div></div>
 <div class="voting-layout"><fieldset class="contestant-fieldset"><legend>1. Choose your contestant</legend><div class="contestant-grid"><label class="contestant-card">
+<input type="radio" name="contestant" value="il-junior" data-name="Emoni Taylor" data-detail="Jr. Miss · Illinois">
+<span class="contestant-state">Illinois <span>2026</span></span>
+<span class="contestant-identity"><span class="contestant-crown" aria-hidden="true"><img src="./public/media/mjusa-logo-transparent.png" alt="" width="1433" height="1098"></span><span class="contestant-name">Emoni Taylor</span></span>
+<span class="contestant-title">Jr. Miss Juneteenth Illinois USA 2026</span>
+<span class="contestant-age">13 years old</span></label>
+<label class="contestant-card">
 <input type="radio" name="contestant" value="fl-miss" data-name="Jasmen Bogere" data-detail="Miss · Florida" >
 <span class="contestant-state">Florida <span>2026</span></span>
 <span class="contestant-identity"><span class="contestant-crown" aria-hidden="true"><img src="./public/media/mjusa-logo-transparent.png" alt="" width="1433" height="1098"></span><span class="contestant-name">Jasmen Bogere</span></span>
@@ -339,12 +345,7 @@
 <span class="contestant-identity"><span class="contestant-crown" aria-hidden="true"><img src="./public/media/mjusa-logo-transparent.png" alt="" width="1433" height="1098"></span><span class="contestant-name"></span></span>
 <span class="contestant-title">Little Miss Juneteenth Illinois USA 2026</span>
 <span class="contestant-age"></span></label>
-<label class="contestant-card">
-<input type="radio" name="contestant" value="il-junior" data-name="Jr. Miss Juneteenth Illinois USA 2026" data-detail="Jr. Miss · Illinois">
-<span class="contestant-state">Illinois <span>2026</span></span>
-<span class="contestant-identity"><span class="contestant-crown" aria-hidden="true"><img src="./public/media/mjusa-logo-transparent.png" alt="" width="1433" height="1098"></span><span class="contestant-name"></span></span>
-<span class="contestant-title">Jr. Miss Juneteenth Illinois USA 2026</span>
-<span class="contestant-age"></span></label></div></fieldset>
+</div></fieldset>
 <div class="vote-summary"><fieldset class="package-fieldset"><legend>2. Choose your vote package</legend>
 <label class="vote-package selected"><input type="radio" name="vote-package" value="1" data-price="5" checked><span>1 vote</span><strong>$5</strong></label>
 <label class="vote-package"><input type="radio" name="vote-package" value="3" data-price="10"><span>3 votes<small>Best value</small></span><strong>$10</strong></label></fieldset>
