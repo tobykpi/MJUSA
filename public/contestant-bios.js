@@ -65,4 +65,10 @@
   const profile = document.createElement('div');
   profile.className = 'contestant-profile';
   card.before(profile); profile.append(card);
+  const photo = document.createElement('img');
+  photo.src = './public/media/emoni-taylor.png';
+  photo.alt = 'Emoni Taylor, Jr. Miss Illinois';
+  photo.className = 'contestant-portrait'; photo.loading = 'lazy';
+  photo.width = 1545; photo.height = 2000;
+  card.querySelector('.contestant-identity').before(photo);
 })();
