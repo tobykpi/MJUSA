@@ -301,6 +301,7 @@
 @media(hover:hover) and (prefers-reduced-motion:no-preference) {
  .contestant-profile:hover,.contestant-grid > .contestant-card:hover,.vote-package:hover { transform:translateY(-5px) scale(1.015); box-shadow:0 14px 30px rgba(104,16,33,.13); }
 }
+.people-leaderboard{padding:72px max(24px,6vw);background:#faf6ed;color:#38131c}.people-leaderboard h2{font-family:var(--font-display,"Cormorant Garamond",serif);font-size:clamp(32px,5vw,56px);margin:12px 0}.people-leaderboard h2 em{color:#681021}.leaderboard-scroll{overflow-x:auto}.people-leaderboard table{width:100%;border-collapse:collapse;margin:24px 0;text-align:left}.people-leaderboard th,.people-leaderboard td{padding:18px 12px;border-bottom:1px solid #dbcac5}.people-leaderboard th:last-child,.people-leaderboard td:last-child{text-align:right;font-variant-numeric:tabular-nums}.people-leaderboard button{background:#681021;color:white;padding:12px 22px;border:0;border-radius:4px;cursor:pointer}.people-leaderboard button:disabled{opacity:.6}.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
 </style>
 </head>
 <body>
@@ -322,7 +323,8 @@
       <div class="hero-stamp" aria-hidden="true"><span>BLACK EXCELLENCE</span><b>1865</b><small>FORWARD</small></div>
     </section>
 
-    <section class="voting" id="vote" aria-labelledby="voting-title">
+    <section class="people-leaderboard" id="leaderboard" aria-labelledby="leaderboard-title"><p class="kicker">Your support. Her moment.</p><h2 id="leaderboard-title">People’s Choice <em>Leaderboard</em></h2><p>Ranked by votes purchased through confirmed payments.</p><p data-leaderboard-status role="status">Loading confirmed votes…</p><div class="leaderboard-scroll"><table hidden><caption class="sr-only">People’s Choice paid vote rankings</caption><thead><tr><th scope="col">Rank</th><th scope="col">Contestant</th><th scope="col">Votes</th></tr></thead><tbody></tbody></table></div><button type="button" data-leaderboard-refresh>Refresh results</button></section>
+<section class="voting" id="vote" aria-labelledby="voting-title">
 <div class="voting-heading"><div><p class="kicker">2026 contestant voting</p><h2 id="voting-title">Celebrate her.<br><em>Champion her.</em></h2></div><div class="voting-intro"><p>Show your support for our Miss Juneteenth USA contestants. Choose a contestant and a vote package below.</p><span class="voting-status">Voting opens soon</span></div></div>
 <div class="voting-layout"><fieldset class="contestant-fieldset"><legend>1. Choose your contestant</legend><div class="contestant-grid">
 <label class="contestant-card">
@@ -419,5 +421,6 @@
   </script>
 <script src="./public/voting-payments.js" defer></script>
 <script src="./public/contestant-bios.js?v=emoni-headshot-20260929" defer></script>
+<script src="./public/leaderboard.js?v=20261006" defer></script>
 </body>
 </html>
