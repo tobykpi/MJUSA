@@ -302,6 +302,9 @@
  .contestant-profile:hover,.contestant-grid > .contestant-card:hover,.vote-package:hover { transform:translateY(-5px) scale(1.015); box-shadow:0 14px 30px rgba(104,16,33,.13); }
 }
 .people-leaderboard{padding:72px max(24px,6vw);background:#faf6ed;color:#38131c}.people-leaderboard h2{font-family:var(--font-display,"Cormorant Garamond",serif);font-size:clamp(32px,5vw,56px);margin:12px 0}.people-leaderboard h2 em{color:#681021}.leaderboard-scroll{overflow-x:auto}.people-leaderboard table{width:100%;border-collapse:collapse;margin:24px 0;text-align:left}.people-leaderboard th,.people-leaderboard td{padding:18px 12px;border-bottom:1px solid #dbcac5}.people-leaderboard th:last-child,.people-leaderboard td:last-child{text-align:right;font-variant-numeric:tabular-nums}.people-leaderboard button{background:#681021;color:white;padding:12px 22px;border:0;border-radius:4px;cursor:pointer}.people-leaderboard button:disabled{opacity:.6}.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.event-flyer { padding:56px 7vw; background:var(--cream); }
+.event-flyer a { display:block; width:min(100%,481px); margin:0 auto; }
+.event-flyer img { display:block; width:100%; height:auto; box-shadow:0 12px 32px rgba(21,19,18,.18); }
 </style>
 </head>
 <body>
@@ -321,6 +324,12 @@
         <div class="hero-lower"><p>Celebrating the brilliance, purpose, and promise of young African American women—one crown, one community, one legacy at a time.</p><a class="primary-button" href="#mission">Discover MJUSA <span>↓</span></a></div>
       </div>
       <div class="hero-stamp" aria-hidden="true"><span>BLACK EXCELLENCE</span><b>1865</b><small>FORWARD</small></div>
+    </section>
+
+    <section class="event-flyer" aria-label="2026 Miss Juneteenth USA Pageant flyer">
+      <a href="./public/media/mjusa-pageant-2026-flyer.png" aria-label="Open the 2026 Miss Juneteenth USA Pageant flyer at full size">
+        <img src="./public/media/mjusa-pageant-2026-flyer.png" alt="Miss Juneteenth USA Pageant: Legacy of Liberation: Forward. Fierce. Free. October 10, 2026 at 5:00 p.m., Bernsen Center, 700 S. Boston Avenue, Tulsa, Oklahoma 74119. Guest host Miss Brooklynn Douglas, Miss Tulsa USA, and special guest Miss Ariane Gibbons, Miss All World Beauties U.S. 2026–2028." width="481" height="622" loading="lazy">
+      </a>
     </section>
 
     <section class="people-leaderboard" id="leaderboard" aria-labelledby="leaderboard-title"><p class="kicker">Your support. Her moment.</p><h2 id="leaderboard-title">People’s Choice <em>Leaderboard</em></h2><p>Ranked by votes purchased through confirmed payments.</p><p data-leaderboard-status role="status">Loading confirmed votes…</p><div class="leaderboard-scroll"><table hidden><caption class="sr-only">People’s Choice paid vote rankings</caption><thead><tr><th scope="col">Rank</th><th scope="col">Contestant</th><th scope="col">Votes</th></tr></thead><tbody></tbody></table></div><button type="button" data-leaderboard-refresh>Refresh results</button></section>
