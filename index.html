@@ -302,9 +302,17 @@
  .contestant-profile:hover,.contestant-grid > .contestant-card:hover,.vote-package:hover { transform:translateY(-5px) scale(1.015); box-shadow:0 14px 30px rgba(104,16,33,.13); }
 }
 .people-leaderboard{padding:72px max(24px,6vw);background:#faf6ed;color:#38131c}.people-leaderboard h2{font-family:var(--font-display,"Cormorant Garamond",serif);font-size:clamp(32px,5vw,56px);margin:12px 0}.people-leaderboard h2 em{color:#681021}.leaderboard-scroll{overflow-x:auto}.people-leaderboard table{width:100%;border-collapse:collapse;margin:24px 0;text-align:left}.people-leaderboard th,.people-leaderboard td{padding:18px 12px;border-bottom:1px solid #dbcac5}.people-leaderboard th:last-child,.people-leaderboard td:last-child{text-align:right;font-variant-numeric:tabular-nums}.people-leaderboard button{background:#681021;color:white;padding:12px 22px;border:0;border-radius:4px;cursor:pointer}.people-leaderboard button:disabled{opacity:.6}.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
-.event-flyer { padding:56px 7vw; background:var(--cream); }
-.event-flyer a { display:block; width:min(100%,481px); margin:0 auto; }
-.event-flyer img { display:block; width:100%; height:auto; box-shadow:0 12px 32px rgba(21,19,18,.18); }
+.event-flyer { padding: 56px 7vw; background: var(--cream); }
+.event-flyer a { display: block; position: relative; overflow: hidden; width: min(100%, 481px); margin: 0 auto; box-shadow: 0 12px 32px rgba(21,19,18,.18); }
+.event-flyer img { display: block; width: 100%; height: auto; }
+.event-flyer.flyer-ready a { opacity: 0; transform: translateY(36px) scale(.96); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+.event-flyer.flyer-ready.flyer-visible a { opacity: 1; transform: translateY(0) scale(1); }
+.event-flyer a::after { content: ""; position: absolute; inset: -20% auto -20% 0; width: 45%; pointer-events: none; background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent); transform: translateX(-160%) skewX(-20deg); }
+@keyframes flyer-shine { to { transform: translateX(360%) skewX(-20deg); } }
+@media (hover: hover) and (pointer: fine) { .event-flyer a:hover::after { animation: flyer-shine .95s ease-in-out; } }
+.event-flyer a:focus-visible { outline: 3px solid var(--red); outline-offset: 6px; }
+.event-flyer a:focus-visible::after { animation: flyer-shine .95s ease-in-out; }
+@media (prefers-reduced-motion: reduce) { .event-flyer.flyer-ready a { opacity: 1; transform: none; transition: none; } .event-flyer a::after { display: none; } }
 </style>
 </head>
 <body>
@@ -431,5 +439,6 @@
 <script src="./public/voting-payments.js" defer></script>
 <script src="./public/contestant-bios.js?v=emoni-headshot-20260929" defer></script>
 <script src="./public/leaderboard.js?v=20261006" defer></script>
+<script src="./public/flyer-effects.js" defer></script>
 </body>
 </html>
