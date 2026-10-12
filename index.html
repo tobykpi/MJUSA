@@ -314,6 +314,8 @@
 .event-flyer a:focus-visible { outline: 3px solid var(--red); outline-offset: 6px; }
 .event-flyer a:focus-visible::after { animation: flyer-shine .95s ease-in-out; }
 @media (prefers-reduced-motion: reduce) { .event-flyer.flyer-ready a { opacity: 1; transform: none; transition: none; } .event-flyer a::after { display: none; } }
+[data-voting-closed="true"] .package-fieldset,[data-voting-closed="true"] .vote-receipt { display:none; }
+.contestant-placement { display:block; margin-top:10px; color:#681021; font-size:13px; font-weight:700; }
 </style>
 </head>
 <body>
@@ -345,9 +347,9 @@
 
 
     <section class="people-leaderboard" id="leaderboard" aria-labelledby="leaderboard-title"><p class="kicker">Your support. Her moment.</p><h2 id="leaderboard-title">People’s Choice <em>Leaderboard</em></h2><p>Ranked by votes purchased through confirmed payments.</p><p data-leaderboard-status role="status">Loading confirmed votes…</p><div class="leaderboard-scroll"><table hidden><caption class="sr-only">People’s Choice paid vote rankings</caption><thead><tr><th scope="col">Rank</th><th scope="col">Contestant</th><th scope="col">Votes</th></tr></thead><tbody></tbody></table></div><button type="button" data-leaderboard-refresh>Refresh results</button></section>
-<section class="voting" id="vote" aria-labelledby="voting-title">
-<div class="voting-heading"><div><p class="kicker">2026 contestant voting</p><h2 id="voting-title">Celebrate her.<br><em>Champion her.</em></h2></div><div class="voting-intro"><p>Show your support for our Miss Juneteenth USA contestants. Choose a contestant and a vote package below.</p><span class="voting-status">Voting opens soon</span></div></div>
-<div class="voting-layout"><fieldset class="contestant-fieldset"><legend>1. Choose your contestant</legend><div class="contestant-grid">
+<section class="voting" id="vote" data-voting-closed="true" aria-labelledby="voting-title">
+<div class="voting-heading"><div><p class="kicker">2026 contestant voting</p><h2 id="voting-title">Celebrate her.<br><em>Champion her.</em></h2></div><div class="voting-intro"><p>Show your support for our Miss Juneteenth USA contestants. Voting has closed. Thank you for your support.</p><span class="voting-status">Voting is closed</span></div></div>
+<div class="voting-layout"><fieldset class="contestant-fieldset" disabled><legend>1. Choose your contestant</legend><div class="contestant-grid">
 <label class="contestant-card">
 <input type="radio" name="contestant" value="fl-miss" data-name="Jasmen Bogere" data-detail="Miss · Florida" >
 <span class="contestant-state">Florida <span>2026</span></span>
@@ -357,7 +359,7 @@
 <label class="contestant-card">
 <input type="radio" name="contestant" value="de-miss" data-name="Lihlo Hollins" data-detail="Miss · Delaware" >
 <span class="contestant-state">Delaware <span>2026</span></span>
-<span class="contestant-identity"><span class="contestant-crown" aria-hidden="true"><img src="./public/media/mjusa-logo-transparent.png" alt="" width="1433" height="1098"></span><span class="contestant-name">Lihlo Hollins</span></span>
+<span class="contestant-identity"><span class="contestant-crown" aria-hidden="true"><img src="./public/media/mjusa-logo-transparent.png" alt="" width="1433" height="1098"></span><span class="contestant-name">Lihlo Hollins</span><span class="contestant-placement">1st runner-up</span></span>
 <span class="contestant-title">Miss Juneteenth Delaware USA 2026</span>
 <span class="contestant-age">16 years old</span></label>
 <label class="contestant-card">
@@ -381,11 +383,11 @@
 
 
 </div></fieldset>
-<div class="vote-summary"><fieldset class="package-fieldset"><legend>2. Choose your vote package</legend>
+<div class="vote-summary"><fieldset class="package-fieldset" disabled><legend>2. Choose your vote package</legend>
 <label class="vote-package selected"><input type="radio" name="vote-package" value="1" data-price="5" checked><span>1 vote</span><strong>$5</strong></label>
 <label class="vote-package"><input type="radio" name="vote-package" value="3" data-price="10"><span>3 votes<small>Best value</small></span><strong>$10</strong></label></fieldset>
 <div class="vote-receipt" aria-live="polite" aria-atomic="true"><span>Your selection</span><h3 id="vote-name">Choose a contestant</h3><p id="vote-detail" hidden></p><div><span id="vote-count">1 vote</span><strong id="vote-total">$5.00</strong></div></div>
-<button class="vote-checkout" type="button" disabled aria-describedby="voting-availability">Voting opens soon</button><p class="voting-note" id="voting-availability">Payments are not available yet. Selecting a contestant does not cast a vote. When voting opens, votes will count only after payment is confirmed.</p></div></div></section>
+<button class="vote-checkout" type="button" disabled aria-describedby="voting-availability">Voting is closed</button><p class="voting-note" id="voting-availability">Voting is closed. Thank you for supporting our contestants!</p></div></div></section>
 
     <section class="mission" id="mission">
       <div class="mission-aside"><img class="mission-logo" src="./public/media/mjusa-logo-transparent.png" alt="Miss Juneteenth USA official logo"></div>
@@ -440,7 +442,7 @@
     const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>entry.isIntersecting&&entry.target.classList.add('is-visible')),{threshold:.12,rootMargin:'0px 0px -45px'});
     revealTargets.forEach(element=>revealObserver.observe(element));
   </script>
-<script src="./public/voting-payments.js" defer></script>
+<script src="./public/voting-payments.js?v=closed-20261012" defer></script>
 <script src="./public/contestant-bios.js?v=emoni-headshot-20260929" defer></script>
 <script src="./public/leaderboard.js?v=20261006" defer></script>
 <script src="./public/flyer-effects.js" defer></script>

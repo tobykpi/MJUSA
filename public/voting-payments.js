@@ -8,12 +8,13 @@
   const publicSite = ['mjusanationals.com', 'www.mjusanationals.com'].includes(location.hostname);
   const api = local ? 'https://mjusa-voting-api.tobyev9.workers.dev' : publicSite ? 'https://mjusa-voting-live.tobyev9.workers.dev' : '';
   const testMode = local;
+  const closed = root.dataset.votingClosed === 'true';
   let ready = false, busy = false, requestId = crypto.randomUUID();
   const selected = () => root.querySelector('input[name="contestant"]:checked');
   const votePackage = () => root.querySelector('input[name="vote-package"]:checked');
   function update() {
-    button.disabled = !ready || busy || !selected();
-    button.textContent = busy ? 'Opening Stripe…' : ready ? 'Continue to Stripe' : 'Payments unavailable';
+    button.disabled = closed || !ready || busy || !selected();
+    button.textContent = closed ? 'Voting is closed' : busy ? 'Opening Stripe…' : ready ? 'Continue to Stripe' : 'Payments unavailable';
   }
   root.addEventListener('change', event => {
     const input = event.target;
@@ -32,7 +33,7 @@
     update();
   });
   button.addEventListener('click', async () => {
-    if (!ready || busy || !selected()) return;
+    if (closed || !ready || busy || !selected()) return;
     const payload = { contestantId: selected().value, votes: Number(votePackage().value), requestId };
     busy = true; update();
     root.querySelectorAll('fieldset').forEach(fieldset => { fieldset.disabled = true; });
@@ -79,6 +80,14 @@
   }
   async function initialize() {
     note.setAttribute('role', 'status');
+    if (closed) {
+      badge.textContent = 'Voting is closed';
+      note.textContent = 'Voting is closed. Thank you for supporting our contestants!';
+      root.querySelectorAll('fieldset').forEach(fieldset => { fieldset.disabled = true; });
+      update();
+      if (api) await checkPayment();
+      return;
+    }
     try {
       if (!api) throw new Error('Payment host not configured');
       const response = await fetch(`${api}/api/payments/config`, { signal:AbortSignal.timeout(5000) });
