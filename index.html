@@ -164,7 +164,7 @@
     .reveal { opacity:0; transform:translateY(34px) scale(.985); transition:opacity .8s var(--reveal-delay,0ms) cubic-bezier(.2,.75,.25,1),transform .8s var(--reveal-delay,0ms) cubic-bezier(.2,.75,.25,1); }.reveal.is-visible { opacity:1; transform:none; }
     @keyframes heroDrift { from { transform:scale(1.01); } to { transform:scale(1.055) translate3d(-.5%,.4%,0); } } @keyframes titleRise { from { opacity:0; transform:translateY(28px) rotateX(-8deg); } to { opacity:1; transform:none; } } @keyframes crownFloat { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-4px); } } @keyframes stampPulse { 0%,100% { box-shadow:inset 0 0 24px rgba(211,173,99,.16),0 0 24px rgba(211,173,99,.14); } 50% { box-shadow:inset 0 0 32px rgba(211,173,99,.24),0 0 42px rgba(211,173,99,.28); } } @keyframes goldGlow { 0%,100% { opacity:.85; } 50% { opacity:1; text-shadow:0 0 34px rgba(211,173,99,.72); } } @keyframes playGlow { 0%,100% { box-shadow:0 8px 30px rgba(0,0,0,.4),0 0 0 0 rgba(255,0,51,.35); } 50% { box-shadow:0 8px 30px rgba(0,0,0,.4),0 0 0 12px rgba(255,0,51,0); } }
     @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; }.brand-logo,.hero-image,.hero-copy h1,.hero-copy .eyebrow,.hero-lower,.hero-stamp,.quote-mark { animation:none!important; }.reveal { opacity:1; transform:none; transition:none; }*,*::before,*::after { scroll-behavior:auto!important; transition-duration:.01ms!important; } }
-  
+
 /* Contestant voting */
 .voting { --wine:#681021; --font-display:"Cormorant Garamond"; }
 
@@ -301,21 +301,21 @@
 @media(hover:hover) and (prefers-reduced-motion:no-preference) {
  .contestant-profile:hover,.contestant-grid > .contestant-card:hover,.vote-package:hover { transform:translateY(-5px) scale(1.015); box-shadow:0 14px 30px rgba(104,16,33,.13); }
 }
+
 .people-leaderboard{padding:72px max(24px,6vw);background:#faf6ed;color:#38131c}.people-leaderboard h2{font-family:var(--font-display,"Cormorant Garamond",serif);font-size:clamp(32px,5vw,56px);margin:12px 0}.people-leaderboard h2 em{color:#681021}.leaderboard-scroll{overflow-x:auto}.people-leaderboard table{width:100%;border-collapse:collapse;margin:24px 0;text-align:left}.people-leaderboard th,.people-leaderboard td{padding:18px 12px;border-bottom:1px solid #dbcac5}.people-leaderboard th:last-child,.people-leaderboard td:last-child{text-align:right;font-variant-numeric:tabular-nums}.people-leaderboard button{background:#681021;color:white;padding:12px 22px;border:0;border-radius:4px;cursor:pointer}.people-leaderboard button:disabled{opacity:.6}.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
-.event-flyer { min-height: calc(100svh - 86px); padding: 24px 6vw 32px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 18px; background: radial-gradient(ellipse at 50% 42%, #253d4e 0%, #101e2c 55%, #080f18 100%); }
-.flyer-eyebrow { margin: 0; color: #e5c989; text-align: center; font-size: 10px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; line-height: 1.6; }
-.event-flyer a { display: block; position: relative; overflow: hidden; width: min(100%, 481px, calc((100svh - 170px) * .7733)); margin: 0 auto; border: 1px solid rgba(229,201,137,.55); border-radius: 4px; box-shadow: 0 24px 65px rgba(0,0,0,.5), 0 0 40px rgba(211,173,99,.1); }
-.event-flyer img { display: block; width: 100%; height: auto; }
-.event-flyer.flyer-ready a { opacity: 0; transform: translateY(36px) scale(.96); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
-.event-flyer.flyer-ready.flyer-visible a { opacity: 1; transform: translateY(0) scale(1); }
-.event-flyer a::after { content: ""; position: absolute; inset: -20% auto -20% 0; width: 45%; pointer-events: none; background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent); transform: translateX(-160%) skewX(-20deg); }
-@keyframes flyer-shine { to { transform: translateX(360%) skewX(-20deg); } }
-@media (hover: hover) and (pointer: fine) { .event-flyer a:hover::after { animation: flyer-shine .95s ease-in-out; } }
-.event-flyer a:focus-visible { outline: 3px solid var(--red); outline-offset: 6px; }
-.event-flyer a:focus-visible::after { animation: flyer-shine .95s ease-in-out; }
-@media (prefers-reduced-motion: reduce) { .event-flyer.flyer-ready a { opacity: 1; transform: none; transition: none; } .event-flyer a::after { display: none; } }
 [data-voting-closed="true"] .package-fieldset,[data-voting-closed="true"] .vote-receipt { display:none; }
 .contestant-placement { display:block; margin-top:10px; color:#681021; font-size:13px; font-weight:700; }
+.winner-feature { padding:clamp(32px,5vw,72px) 6vw; background:#681021; color:#fffaf2; }
+.winners-heading { text-align:center; margin:0 auto 36px; }
+.winners-heading .kicker { color:#f1d79f; font-size:12px; letter-spacing:.16em; text-transform:uppercase; }
+.winners-heading h2 { margin:16px 0; font-family:var(--font-display,"Cormorant Garamond"),Georgia,serif; font-size:clamp(36px,4.5vw,64px); font-weight:500; line-height:1.1; }
+.winners-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(20px,3vw,48px); max-width:1360px; margin:auto; }
+.winner-card { min-width:0; text-align:center; }
+.winner-photo { display:block; width:100%; max-width:427px; height:auto; margin:0 auto; border:1px solid #d3ad63; }
+.winner-copy { margin:24px auto 0; max-width:427px; }
+.winner-copy h3 { margin:0 0 12px; font-family:var(--font-display,"Cormorant Garamond"),Georgia,serif; font-weight:500; font-size:clamp(26px,2.8vw,40px); line-height:1.15; overflow-wrap:break-word; }
+.winner-title { margin:0; color:#f1d79f; font-size:clamp(16px,1.5vw,21px); line-height:1.5; }
+@media(max-width:700px) { .winner-feature { padding:36px 24px 44px; } .winners-grid { grid-template-columns:1fr; gap:44px; } .winner-copy h3 { font-size:32px; } }
 </style>
 </head>
 <body>
@@ -326,12 +326,23 @@
       <a class="header-cta" href="#contact">Get involved <span aria-hidden="true">↓</span></a>
     </header>
 
-    <section class="event-flyer" id="top" aria-label="2026 Miss Juneteenth USA Pageant flyer">
-      <p class="flyer-eyebrow">The national stage · Tulsa, Oklahoma</p>
-      <a href="./public/media/mjusa-pageant-2026-flyer.png" aria-label="Open the 2026 Miss Juneteenth USA Pageant flyer at full size">
-        <img src="./public/media/mjusa-pageant-2026-flyer.png" alt="Miss Juneteenth USA Pageant: Legacy of Liberation: Forward. Fierce. Free. October 10, 2026 at 5:00 p.m., Bernsen Center, 700 S. Boston Avenue, Tulsa, Oklahoma 74119. Guest host Miss Brooklynn Douglas, Miss Tulsa USA, and special guest Miss Ariane Gibbons, Miss All World Beauties U.S. 2026–2028." width="481" height="622" loading="eager" fetchpriority="high">
-      </a>
-    </section>
+    <section class="winner-feature" id="top" aria-labelledby="winners-heading">
+        <div class="winners-heading"><p class="kicker">Celebrating our 2026 queens</p><h2 id="winners-heading">Meet our national winners</h2></div>
+        <div class="winners-grid">
+          <article class="winner-card" aria-labelledby="winner-0">
+            <img class="winner-photo" src="./public/media/jasmen-bogere-crowning-2026.png" alt="Jasmen Bogere being crowned Miss Juneteenth USA 2026" width="427" height="640" loading="eager">
+            <div class="winner-copy"><h3 id="winner-0">Miss Jasmen Bogere</h3><p class="winner-title">Miss Juneteenth USA 2026</p></div>
+          </article>
+          <article class="winner-card" aria-labelledby="winner-1">
+            <img class="winner-photo" src="./public/media/syerra-thigpen-crowning-2026.png" alt="Syerra Thigpen, Jr. Miss Juneteenth USA 2026, wearing her crown and holding flowers" width="427" height="640" loading="eager">
+            <div class="winner-copy"><h3 id="winner-1">Miss Syerra Thigpen</h3><p class="winner-title">Jr. Miss Juneteenth USA 2026</p></div>
+          </article>
+          <article class="winner-card" aria-labelledby="winner-2">
+            <img class="winner-photo" src="./public/media/teylyn-prater-fulliere-crowning-2026.png" alt="Teylyn Prater-Fulliere, Little Miss Juneteenth USA 2026, with her crown, flowers, and trophies" width="427" height="640" loading="eager">
+            <div class="winner-copy"><h3 id="winner-2">Miss Teylyn Prater-Fulliere</h3><p class="winner-title">Little Miss Juneteenth USA 2026</p></div>
+          </article>
+        </div>
+      </section>
 
     <section class="hero" id="about">
       <img class="hero-image" src="./public/media/mjusa-trustees-hall.jpg" alt="Miss Juneteenth USA queens and leadership on the staircase at Trustees Hall">
@@ -346,7 +357,6 @@
 
 
 
-    <section class="people-leaderboard" id="leaderboard" aria-labelledby="leaderboard-title"><p class="kicker">Your support. Her moment.</p><h2 id="leaderboard-title">People’s Choice <em>Leaderboard</em></h2><p>Ranked by votes purchased through confirmed payments.</p><p data-leaderboard-status role="status">Loading confirmed votes…</p><div class="leaderboard-scroll"><table hidden><caption class="sr-only">People’s Choice paid vote rankings</caption><thead><tr><th scope="col">Rank</th><th scope="col">Contestant</th><th scope="col">Votes</th></tr></thead><tbody></tbody></table></div><button type="button" data-leaderboard-refresh>Refresh results</button></section>
 <section class="voting" id="vote" data-voting-closed="true" aria-labelledby="voting-title">
 <div class="voting-heading"><div><p class="kicker">2026 contestant voting</p><h2 id="voting-title">Celebrate her.<br><em>Champion her.</em></h2></div><div class="voting-intro"><p>Show your support for our Miss Juneteenth USA contestants. Voting has closed. Thank you for your support.</p><span class="voting-status">Voting is closed</span></div></div>
 <div class="voting-layout"><fieldset class="contestant-fieldset" disabled><legend>1. Choose your contestant</legend><div class="contestant-grid">
@@ -425,8 +435,9 @@
       </div>
     </section>
 
-    
-    <section class="closing"><img class="closing-logo" src="./public/media/mjusa-logo-transparent.png" alt="Miss Juneteenth USA official logo"><p class="eyebrow">YOUR JOURNEY STARTS HERE</p><h2>Ready to step<br>into your <em>legacy?</em></h2></section>
+
+
+<section class="closing"><img class="closing-logo" src="./public/media/mjusa-logo-transparent.png" alt="Miss Juneteenth USA official logo"><p class="eyebrow">YOUR JOURNEY STARTS HERE</p><h2>Ready to step<br>into your <em>legacy?</em></h2></section>
 
     <section class="contact-section" id="contact" aria-labelledby="contact-title"><div class="contact-inner"><div><p class="kicker">Get involved</p><h2 id="contact-title">Contact us</h2><p class="contact-copy">Have a question about participation or partnerships? We’d love to hear from you.</p></div><div class="contact-card"><span class="contact-card-label">Email MJUSA Nationals</span><a class="contact-email" href="mailto:Info@MJUSAnationals.com"><span>Info@MJUSAnationals.com</span><span class="contact-email-arrow" aria-hidden="true">↗</span></a></div></div></section>
 <footer class="site-footer">
@@ -444,7 +455,5 @@
   </script>
 <script src="./public/voting-payments.js?v=closed-20261012" defer></script>
 <script src="./public/contestant-bios.js?v=emoni-headshot-20260929" defer></script>
-<script src="./public/leaderboard.js?v=20261006" defer></script>
-<script src="./public/flyer-effects.js" defer></script>
 </body>
 </html>
